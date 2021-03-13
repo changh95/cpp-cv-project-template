@@ -4,7 +4,7 @@ import subprocess
 
 
 def main():
-    parser = argparse.ArgumentParser(description='42dot implementation tasks')
+    parser = argparse.ArgumentParser(description='build and run program')
     parser.add_argument('-d', action='store_true',
                         help='Flag for debug mode compilation')
     args = parser.parse_args()
