@@ -6,13 +6,17 @@ def main():
     parser = argparse.ArgumentParser(description='Script for project setup')
     parser.add_argument('--toolchain', action='store_true',
                         help='Flag for installing essential C++ toolchains: \
+                            git, \
+                            build-essentials, \
+                            cppcheck, \
+                            cmake, \
                             clang, \
                             gcc, \
-                            clang-tools \
-                            clang-tidy \
-                            lldb \
-                            lld \
-                            libc++ \
+                            clang-tools, \
+                            clang-tidy, \
+                            lldb, \
+                            lld, \
+                            libc++, \
                             libomp')
     args = parser.parse_args()
 
