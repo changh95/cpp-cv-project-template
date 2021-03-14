@@ -13,6 +13,7 @@ This repo contains a C++ project template for developing computer vision applica
    - GTest (TODO)
    - Ceres-solver (TODO)
    - GTSAM (TODO)
+   - OpenGL (TODO)
    - fast-cpp-csv-parser (TODO)
 
 ## Scripts
