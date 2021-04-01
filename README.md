@@ -4,6 +4,20 @@
 
 This repo contains a C++ project template for developing computer vision applications.
 
+## Dependencies
+
+You need [Python3](https://www.python.org/) to use the automation scripts for project setup and build.
+
+### Linux
+
+```bash
+sudo apt install python3
+```
+
+### Windows
+
+Download the latest [Python3](https://www.python.org/downloads/windows/).
+
 ## Features
 
 - The project comprise a widely-used C++ project structure.
@@ -11,7 +25,7 @@ This repo contains a C++ project template for developing computer vision applica
    - git, build-essentials, cppcheck, cmake, clang, gcc, clang-tools, clang-tidy, lldb, lld, libc++, libomp
 - The project supports the following 3rdParty libraries:
    - Eigen (TODO)
-   - OpenCV (TODO)
+   - OpenCV (On-going)
    - GTest (TODO)
    - Ceres-solver (TODO)
    - GTSAM (TODO)
@@ -19,5 +33,7 @@ This repo contains a C++ project template for developing computer vision applica
    - fast-cpp-csv-parser (TODO)
 
 ## Scripts
+
+
 
 [Wiki for install_llvm_toolchain.sh](https://github.com/nachovizzo/must-have-tools/wiki)
