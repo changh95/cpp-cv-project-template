@@ -16,7 +16,7 @@ sudo apt install python3
 
 # Project setup - Install dependencies
 chmod u+x setup.py
-setup.py --toolchain --opencv 4.5.1 --opencv_contrib --eigen 3.3.9
+./setup.py --toolchain --opencv 4.5.1 --opencv_contrib --eigen 3.3.9
 
 ```
 
