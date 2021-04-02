@@ -1,4 +1,5 @@
 import os
+import multiprocessing
 
 
 class install_opencv:
@@ -29,4 +30,6 @@ class install_opencv:
         os.system(
             "cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-" + self.version_num + "/modules ../opencv-" + self.version_num)
         # Build
-        os.system("cmake --build .")
+        num_cpu_cores = multiprocessing.cpu_count()
+        os.system("make -j" + str(num_cpu_cores))
+        #os.system("cmake --build .")

@@ -21,7 +21,7 @@ def main():
                             libc++, \
                             libomp ')
     parser.add_argument('--opencv', type=str, default="",
-                        help='Flag for installing OpenCV of specified version. (e.g. --opencv 4.4.0')
+                        help='Flag for installing OpenCV of specified version. (e.g. --opencv 4.5.1')
     args = parser.parse_args()
 
     if args.toolchain:
@@ -34,8 +34,8 @@ def main():
         os.system(
             'chmod +x ./scripts/third_party_clone/opencv/install_opencv_deps.sh')
         os.system('./scripts/third_party_clone/opencv/install_opencv_deps.sh')
-        opencv_install = install_opencv(args.opencv)
-        opencv_install.run()
+        installer = install_opencv(args.opencv)
+        installer.run()
 
     print("Setup complete!")
 
