@@ -2,6 +2,7 @@
 import argparse
 import os
 from scripts.third_party_clone.opencv.install_opencv import install_opencv
+from scripts.third_party_clone.eigen.install_eigen import install_eigen
 
 
 def main():
@@ -21,7 +22,12 @@ def main():
                             libc++, \
                             libomp ')
     parser.add_argument('--opencv', type=str, default="",
-                        help='Flag for installing OpenCV of specified version. (e.g. --opencv 4.5.1')
+                        help='Flag for installing OpenCV of specified version. (e.g. --opencv 4.5.1)')
+    parser.add_argument('--opencv_contrib', type=bool, default=False,
+                        help='Flag for installing OpenCV_contrib with OpenCV. (True or False)')
+    parser.add_argument('--eigen', type=str, default="",
+                        help='Flag for installing Eigen of specified version. (e.g. --eigen 3.3.9)')
+
     args = parser.parse_args()
 
     if args.toolchain:
@@ -34,7 +40,11 @@ def main():
         os.system(
             'chmod +x ./scripts/third_party_clone/opencv/install_opencv_deps.sh')
         os.system('./scripts/third_party_clone/opencv/install_opencv_deps.sh')
-        installer = install_opencv(args.opencv)
+        installer = install_opencv(args.opencv, args.opencv_contrib)
+        installer.run()
+
+    if args.eigen != "":
+        installer = install_eigen(args.eigen)
         installer.run()
 
     print("Setup complete!")

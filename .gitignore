@@ -5,4 +5,5 @@ compile_commands.json
 Makefile
 
 third_party/opencv**
+third_party/Eigen**
 *.pyc
