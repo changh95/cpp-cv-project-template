@@ -4,6 +4,7 @@ cmake_install.cmake
 compile_commands.json
 Makefile
 
+third_party/ceres-solver**
 third_party/opencv**
 third_party/Eigen**
 *.pyc

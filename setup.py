@@ -3,6 +3,7 @@ import argparse
 import os
 from scripts.third_party_clone.opencv.install_opencv import install_opencv
 from scripts.third_party_clone.eigen.install_eigen import install_eigen
+from scripts.third_party_clone.ceres.install_ceres_solver import install_ceres_solver
 
 
 def main():
@@ -27,6 +28,8 @@ def main():
                         help='Flag for installing OpenCV_contrib with OpenCV. (True or False)')
     parser.add_argument('--eigen', type=str, default="",
                         help='Flag for installing Eigen of specified version. (e.g. --eigen 3.3.9)')
+    parser.add_argument('--ceres', metavar='\b', type=str, default="",
+                        help='Flag for installing Ceres-solver of specified version. (e.g. --ceres-solver 2.0.0)')
 
     args = parser.parse_args()
 
@@ -45,6 +48,10 @@ def main():
 
     if args.eigen != "":
         installer = install_eigen(args.eigen)
+        installer.run()
+
+    if args.ceres != "":
+        installer = install_ceres_solver(args.ceres)
         installer.run()
 
     print("Setup complete!")
