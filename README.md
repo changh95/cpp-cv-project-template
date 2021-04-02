@@ -35,8 +35,8 @@ Download the latest [Python3](https://www.python.org/downloads/windows/).
    - Eigen (On-going)
    - OpenCV (On-going)
    - GTest (TODO)
-   - Ceres-solver (TODO)
-   - GTSAM (TODO)
+   - Ceres-solver (On-going)
+   - GTSAM (On-going)
    - OpenGL (TODO)
    - fast-cpp-csv-parser (TODO)
 

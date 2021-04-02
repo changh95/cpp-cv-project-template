@@ -5,6 +5,7 @@ import sys
 from scripts.third_party_clone.opencv.install_opencv import install_opencv
 from scripts.third_party_clone.eigen.install_eigen import install_eigen
 from scripts.third_party_clone.ceres.install_ceres_solver import install_ceres_solver
+from scripts.third_party_clone.gtsam.install_gtsam import install_gtsam
 
 
 def main():
@@ -31,6 +32,8 @@ def main():
                         help='Flag for installing Eigen of specified version. (e.g. --eigen 3.3.9)')
     parser.add_argument('--ceres', metavar='\b', type=str, default="",
                         help='Flag for installing Ceres-solver of specified version. (e.g. --ceres-solver 2.0.0)')
+    parser.add_argument('--gtsam', metavar='\b', type=str, default="",
+                        help='Flag for installing GTSAM of specified version. (e.g. --gtsam 4.0.3)')
 
     args = parser.parse_args()
 
@@ -57,6 +60,10 @@ def main():
 
     if args.ceres != "":
         installer = install_ceres_solver(args.ceres)
+        installer.run()
+
+    if args.gtsam != "":
+        installer = install_gtsam(args.gtsam)
         installer.run()
 
     print("Setup complete!")
