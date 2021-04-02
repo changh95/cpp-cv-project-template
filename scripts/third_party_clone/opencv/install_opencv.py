@@ -3,7 +3,8 @@ import multiprocessing
 
 
 class install_opencv:
-    def __init__(self, version_num, build_contrib):
+    def __init__(self, d, version_num, build_contrib):
+        self.d = d
         self.version_num = version_num
         self.install_dir = "./third_party/opencv"
         self.build_contrib = build_contrib
@@ -29,15 +30,23 @@ class install_opencv:
         os.system("mkdir " + self.install_dir + "/build")
         os.chdir(self.install_dir + "/build")
 
+        exec_string = "cmake ../opencv-" + self.version_num
+
         if self.build_contrib:
-            os.system(
-                "cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-" + self.version_num + "/modules ../opencv-" + self.version_num)
-        else:
-            os.system("cmake ../opencv-" + self.version_num)
+            exec_string += " -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-" + \
+                self.version_num + "/modules"
+
+        if self.d:
+            exec_string += " -DCMAKE_BUILD_TYPE=Debug"
+
+        return_code = os.system(exec_string)
+        if return_code != 0:
+            print("Error occured in building OpenCV!")
+            return
 
         # Build
         num_cpu_cores = multiprocessing.cpu_count()
-        os.system("make -j" + str(num_cpu_cores))
+        os.system("make -j" + str(num_cpu_cores-1))
 
         # Delete source files
         os.chdir("../")

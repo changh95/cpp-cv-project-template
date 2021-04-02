@@ -3,7 +3,8 @@ import multiprocessing
 
 
 class install_gtsam:
-    def __init__(self, version_num):
+    def __init__(self, d, version_num):
+        self.d = d
         self.version_num = version_num
         self.install_dir = "./third_party/GTSAM"
 
@@ -26,12 +27,20 @@ class install_gtsam:
         os.system("mkdir " + self.install_dir + "/build")
         os.chdir(self.install_dir + "/build")
 
-        os.system("cmake ../gtsam-" + self.version_num)
+        exec_string = "cmake ../gtsam-" + self.version_num
+
+        if self.d:
+            exec_string += " -DCMAKE_BUILD_TYPE=Debug"
+
+        return_code = os.system(exec_string)
+        if return_code != 0:
+            print("Error occured in building GTSAM!")
+            return
 
         # Build
         num_cpu_cores = multiprocessing.cpu_count()
-        os.system("make check -j" + str(num_cpu_cores))
-        os.system("make -j" + str(num_cpu_cores))
+        os.system("make check -j" + str(num_cpu_cores-1))
+        os.system("make -j" + str(num_cpu_cores-1))
 
         # Delete source files
         os.chdir("../")

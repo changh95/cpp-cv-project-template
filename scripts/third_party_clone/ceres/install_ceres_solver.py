@@ -3,7 +3,8 @@ import multiprocessing
 
 
 class install_ceres_solver:
-    def __init__(self, version_num):
+    def __init__(self, d, version_num):
+        self.d = d
         self.version_num = version_num
         self.install_dir = "./third_party/ceres-solver"
 
@@ -28,12 +29,20 @@ class install_ceres_solver:
         os.system("mkdir " + self.install_dir + "/solver")
         os.chdir(self.install_dir + "/ceres-bin")
 
-        os.system("cmake ../ceres-solver-" + self.version_num +
-                  " -DEXPORT_BUILD_DIR=ON -DCMAKE_INSTALL_PREFIX=\"../solver\"")
+        exec_string = "cmake ../ceres-solver -" + self.version_num + \
+            " -DEXPORT_BUILD_DIR=ON -DCMAKE_INSTALL_PREFIX=\"../solver\""
+
+        if self.d:
+            exec_string += " -DCMAKE_BUILD_TYPE=Debug"
+
+        return_code = os.system(exec_string)
+        if return_code != 0:
+            print("Error occured in building Ceres-solver!")
+            return
 
         # Build
         num_cpu_cores = multiprocessing.cpu_count()
-        os.system("make -j" + str(num_cpu_cores))
+        os.system("make -j" + str(num_cpu_cores-1))
         os.system("make test")
         # No `make install`, since this will install in system.
 

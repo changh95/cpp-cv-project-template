@@ -10,6 +10,8 @@ from scripts.third_party_clone.gtsam.install_gtsam import install_gtsam
 
 def main():
     parser = argparse.ArgumentParser(description='Script for project setup')
+    parser.add_argument('--d', action='store_true',
+                        help='Flag for building libraries under debug mode')
     parser.add_argument('--toolchain', action='store_true',
                         help='Flag for installing essential C++ toolchains: \
                             git, \
@@ -27,7 +29,7 @@ def main():
     parser.add_argument('--opencv', metavar='\b', type=str, default="",
                         help='Flag for installing OpenCV of specified version. (e.g. --opencv 4.5.1)')
     parser.add_argument('--opencv_contrib', action='store_true',
-                        help='Flag for installing OpenCV_contrib with OpenCV. (True or False)')
+                        help='Flag for installing OpenCV_contrib with OpenCV.')
     parser.add_argument('--eigen', metavar='\b', type=str, default="",
                         help='Flag for installing Eigen of specified version. (e.g. --eigen 3.3.9)')
     parser.add_argument('--ceres', metavar='\b', type=str, default="",
@@ -51,7 +53,7 @@ def main():
         os.system(
             'chmod +x ./scripts/third_party_clone/opencv/install_opencv_deps.sh')
         os.system('./scripts/third_party_clone/opencv/install_opencv_deps.sh')
-        installer = install_opencv(args.opencv, args.opencv_contrib)
+        installer = install_opencv(args.d, args.opencv, args.opencv_contrib)
         installer.run()
 
     if args.eigen != "":
