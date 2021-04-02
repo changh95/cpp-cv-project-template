@@ -24,7 +24,7 @@ chmod u+x setup.py
 
 Download the latest [Python3](https://www.python.org/downloads/windows/).
 
-(TODO)
+For now, it is highly recommended to use [Windows Subsystems for Linux (WSL)](https://docs.microsoft.com/en-gb/windows/wsl/install-win10) to use the build scripts. Hopefully I can make build scripts for Windows soon enough...
 
 ## Features
 
