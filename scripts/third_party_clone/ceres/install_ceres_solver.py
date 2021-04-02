@@ -39,4 +39,4 @@ class install_ceres_solver:
 
         # Delete source files
         os.chdir("../")
-        os.system("rm -rf ceres-solver.zip")
+        os.system("rm -rf ceres-solver.tar.gz")
