@@ -5,7 +5,7 @@ import multiprocessing
 class install_opencv:
     def __init__(self, version_num, build_contrib):
         self.version_num = version_num
-        self.install_dir = "./third_party/opencv_" + self.version_num
+        self.install_dir = "./third_party/opencv"
         self.build_contrib = build_contrib
 
     def run(self):
