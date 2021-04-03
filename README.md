@@ -16,7 +16,7 @@ sudo apt install python3
 
 # Project setup - Install dependencies
 chmod u+x setup.py
-./setup.py --toolchain --opencv 4.5.1 --opencv_contrib --eigen 3.3.9 --ceres 2.0.0 --gtsam 4.0.3
+./setup.py --toolchain --opencv 4.5.1 --opencv_contrib --eigen 3.3.9 --ceres 2.0.0 --gtsam 4.0.3 --python3 --open3d
 
 ```
 
@@ -30,13 +30,20 @@ For now, it is highly recommended to use [Windows Subsystems for Linux (WSL)](ht
 
 - The project comprise a widely-used C++ project structure.
 - The project supports installing essential toolchains for C++ programming and debugging.
-   - git, build-essentials, cppcheck, cmake, clang, gcc, clang-tools, clang-tidy, lldb, lld, libc++, libomp
+   - git, build-essentials, cppcheck, cmake, clang, gcc, clang-tools, clang-tidy, lldb, lld, libc++, libomp (:heavy_check_mark:)
 - The project supports the following 3rdParty libraries:
-   - Eigen (On-going)
-   - OpenCV (On-going)
-   - GTest (TODO)
-   - Ceres-solver (On-going)
-   - GTSAM (On-going)
-   - OpenGL (TODO)
-   - fast-cpp-csv-parser (TODO)
+   - Python3 + Numpy + matplotlib (:heavy_check_mark:)
+   - Open3D (:heavy_check_mark:)
+   - Eigen (:white_check_mark:)
+   - OpenCV (:white_check_mark:)
+   - Ceres-solver (:white_check_mark:)
+   - GTSAM (:white_check_mark:)
+   - PCL (:heavy_multiplication_x:)
+   - GTest (:heavy_multiplication_x:)
+   - OpenGL (:heavy_multiplication_x:)
+   - fast-cpp-csv-parser (:heavy_multiplication_x:)
 
+Status legend:
+:heavy_check_mark: - Fully supported
+:white_check_mark: - Partially supported / Build-only
+:heavy_multiplication_x: - Not supported yet
