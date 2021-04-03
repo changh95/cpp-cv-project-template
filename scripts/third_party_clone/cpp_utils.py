@@ -25,7 +25,9 @@ class install_cpp_utils:
         os.system("cmake ../spdlog")
 
         num_cpu_cores = multiprocessing.cpu_count()
-        os.system("make -j" + str(num_cpu_cores-1))
+        os.system("make -j" + str(num_cpu_cores - 1))
+
+        os.chdir("../../../")
 
     def __install_csv_parser(self):
         # https://github.com/ben-strasser/fast-cpp-csv-parser
