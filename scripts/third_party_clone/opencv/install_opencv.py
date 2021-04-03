@@ -47,7 +47,7 @@ class install_opencv:
 
         # Build
         num_cpu_cores = multiprocessing.cpu_count()
-        # os.system("make -j" + str(num_cpu_cores-1))
+        os.system("make -j" + str(num_cpu_cores-1))
 
         # Delete source files
         os.chdir("../")

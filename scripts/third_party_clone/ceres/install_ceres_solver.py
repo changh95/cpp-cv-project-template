@@ -43,8 +43,8 @@ class install_ceres_solver:
 
         # Build
         num_cpu_cores = multiprocessing.cpu_count()
-        # os.system("make -j" + str(num_cpu_cores-1))
-        # os.system("make test")
+        os.system("make -j" + str(num_cpu_cores-1))
+        os.system("make test")
         # No `make install`, since this will install in system.
 
         # Delete source files
