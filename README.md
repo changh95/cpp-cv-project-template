@@ -16,7 +16,7 @@ sudo apt install python3
 
 # Project setup - Install dependencies
 chmod u+x setup.py
-./setup.py --toolchain --opencv 4.5.1 --opencv_contrib --eigen 3.3.9 --ceres 2.0.0 --gtsam 4.0.3 --python3 --open3d
+./setup.py --toolchain --utils --opencv 4.5.1 --opencv_contrib --eigen 3.3.9 --pcl 1.11.1 --ceres 2.0.0 --gtsam 4.0.3 --python3 --open3d
 
 ```
 
