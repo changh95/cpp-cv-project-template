@@ -41,8 +41,9 @@ For now, it is highly recommended to use [Windows Subsystems for Linux (WSL)](ht
    - GTSAM (:white_check_mark:)
    - PCL (:white_check_mark:)
       - Visualization disabled
-   - GTest (:heavy_multiplication_x:)
    - OpenGL (:heavy_multiplication_x:)
+   - GTest (:heavy_multiplication_x:)
+   - spdlog (:white_check_mark:)
    - fast-cpp-csv-parser (:heavy_multiplication_x:)
 
 Status legend:

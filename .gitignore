@@ -4,11 +4,9 @@ cmake_install.cmake
 compile_commands.json
 Makefile
 
+.vscode**
+
 python_venv/**
 
-third_party/pcl**
-third_party/ceres-solver**
-third_party/GTSAM**
-third_party/opencv**
-third_party/Eigen**
+third_party/**
 *.pyc

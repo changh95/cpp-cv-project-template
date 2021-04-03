@@ -3,6 +3,7 @@ import argparse
 import os
 import sys
 import shutil
+from scripts.third_party_clone.cpp_utils import install_cpp_utils
 from scripts.third_party_clone.opencv.install_opencv import install_opencv
 from scripts.third_party_clone.eigen.install_eigen import install_eigen
 from scripts.third_party_clone.ceres.install_ceres_solver import install_ceres_solver
@@ -28,6 +29,10 @@ def main():
                             lld, \
                             libc++, \
                             libomp ')
+    parser.add_argument('--utils', action='store_true',
+                        help='Flag for installing C++ utilities: \
+                            spdlog, \
+                            fast-cpp-csv-parser')
     parser.add_argument('--opencv', metavar='\b', type=str, default="",
                         help='Flag for installing OpenCV of specified version. (e.g. --opencv 4.5.1)')
     parser.add_argument('--opencv_contrib', action='store_true',
@@ -56,6 +61,10 @@ def main():
         os.system('chmod +x ./scripts/cpp_tool_chains/install_llvm_toolchain.sh')
         os.system('./scripts/cpp_tool_chains/install_essentials.sh')
         os.system('./scripts/cpp_tool_chains/install_llvm_toolchain.sh')
+
+    if args.utils:
+        installer = install_cpp_utils(args.d)
+        installer.run()
 
     if args.opencv != "":
         os.system(
