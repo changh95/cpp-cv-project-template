@@ -7,6 +7,7 @@ from scripts.third_party_clone.opencv.install_opencv import install_opencv
 from scripts.third_party_clone.eigen.install_eigen import install_eigen
 from scripts.third_party_clone.ceres.install_ceres_solver import install_ceres_solver
 from scripts.third_party_clone.gtsam.install_gtsam import install_gtsam
+from scripts.third_party_clone.pcl.install_pcl import install_pcl
 
 
 def main():
@@ -33,6 +34,8 @@ def main():
                         help='Flag for installing OpenCV_contrib with OpenCV.')
     parser.add_argument('--eigen', metavar='\b', type=str, default="",
                         help='Flag for installing Eigen of specified version. (e.g. --eigen 3.3.9)')
+    parser.add_argument('--pcl', metavar='\b', type=str, default="",
+                        help='Flag for installing PCL of specified version. (e.g. --pcl 1.11.1)')
     parser.add_argument('--ceres', metavar='\b', type=str, default="",
                         help='Flag for installing Ceres-solver of specified version. (e.g. --ceres-solver 2.0.0)')
     parser.add_argument('--gtsam', metavar='\b', type=str, default="",
@@ -63,6 +66,10 @@ def main():
 
     if args.eigen != "":
         installer = install_eigen(args.d, args.eigen)
+        installer.run()
+
+    if args.pcl != "":
+        installer = install_pcl(args.d, args.pcl)
         installer.run()
 
     if args.ceres != "":

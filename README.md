@@ -36,9 +36,11 @@ For now, it is highly recommended to use [Windows Subsystems for Linux (WSL)](ht
    - Open3D (:heavy_check_mark:)
    - Eigen (:white_check_mark:)
    - OpenCV (:white_check_mark:)
+      - Non-free algorithms enabled
    - Ceres-solver (:white_check_mark:)
    - GTSAM (:white_check_mark:)
-   - PCL (:heavy_multiplication_x:)
+   - PCL (:white_check_mark:)
+      - Visualization disabled
    - GTest (:heavy_multiplication_x:)
    - OpenGL (:heavy_multiplication_x:)
    - fast-cpp-csv-parser (:heavy_multiplication_x:)

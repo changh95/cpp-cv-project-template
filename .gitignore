@@ -6,6 +6,7 @@ Makefile
 
 python_venv/**
 
+third_party/pcl**
 third_party/ceres-solver**
 third_party/GTSAM**
 third_party/opencv**
