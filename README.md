@@ -44,6 +44,6 @@ For now, it is highly recommended to use [Windows Subsystems for Linux (WSL)](ht
    - fast-cpp-csv-parser (:heavy_multiplication_x:)
 
 Status legend:
-:heavy_check_mark: - Fully supported
-:white_check_mark: - Partially supported / Build-only
+:heavy_check_mark: - Fully supported, 
+:white_check_mark: - Partially supported / Build-only, 
 :heavy_multiplication_x: - Not supported yet
