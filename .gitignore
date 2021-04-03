@@ -4,6 +4,8 @@ cmake_install.cmake
 compile_commands.json
 Makefile
 
+python_venv/**
+
 third_party/ceres-solver**
 third_party/GTSAM**
 third_party/opencv**
