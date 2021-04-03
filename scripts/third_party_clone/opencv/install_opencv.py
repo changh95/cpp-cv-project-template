@@ -46,7 +46,7 @@ class install_opencv:
 
         # Build
         num_cpu_cores = multiprocessing.cpu_count()
-        os.system("make -j" + str(num_cpu_cores-1))
+        # os.system("make -j" + str(num_cpu_cores-1))
 
         # Delete source files
         os.chdir("../")
@@ -54,3 +54,5 @@ class install_opencv:
 
         if self.build_contrib:
             os.system("rm -rf opencv_contrib.zip")
+
+        os.chdir("../../")

@@ -27,9 +27,10 @@ class install_ceres_solver:
         # CMake configure
         os.system("mkdir " + self.install_dir + "/ceres-bin")
         os.system("mkdir " + self.install_dir + "/solver")
+
         os.chdir(self.install_dir + "/ceres-bin")
 
-        exec_string = "cmake ../ceres-solver -" + self.version_num + \
+        exec_string = "cmake ../ceres-solver-" + self.version_num + \
             " -DEXPORT_BUILD_DIR=ON -DCMAKE_INSTALL_PREFIX=\"../solver\""
 
         if self.d:
@@ -42,10 +43,12 @@ class install_ceres_solver:
 
         # Build
         num_cpu_cores = multiprocessing.cpu_count()
-        os.system("make -j" + str(num_cpu_cores-1))
-        os.system("make test")
+        # os.system("make -j" + str(num_cpu_cores-1))
+        # os.system("make test")
         # No `make install`, since this will install in system.
 
         # Delete source files
         os.chdir("../")
         os.system("rm -rf ceres-solver.tar.gz")
+
+        os.chdir("../../")
