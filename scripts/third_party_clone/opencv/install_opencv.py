@@ -30,7 +30,8 @@ class install_opencv:
         os.system("mkdir " + self.install_dir + "/build")
         os.chdir(self.install_dir + "/build")
 
-        exec_string = "cmake ../opencv-" + self.version_num
+        # We enable non-free algorithms (e.g. SIFT, SURF...)
+        exec_string = "cmake ../opencv-" + self.version_num + " -DOPENCV_ENABLE_NONFREE=ON"
 
         if self.build_contrib:
             exec_string += " -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-" + \
