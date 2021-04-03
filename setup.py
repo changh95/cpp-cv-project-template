@@ -57,15 +57,15 @@ def main():
         installer.run()
 
     if args.eigen != "":
-        installer = install_eigen(args.eigen)
+        installer = install_eigen(args.d, args.eigen)
         installer.run()
 
     if args.ceres != "":
-        installer = install_ceres_solver(args.ceres)
+        installer = install_ceres_solver(args.d, args.ceres)
         installer.run()
 
     if args.gtsam != "":
-        installer = install_gtsam(args.gtsam)
+        installer = install_gtsam(args.d, args.gtsam)
         installer.run()
 
     print("Setup complete!")
