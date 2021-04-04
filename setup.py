@@ -49,6 +49,10 @@ def main():
                         help='Flag for installing Python3 and some useful tools. By default, numpy and matplotlib are installed')
     parser.add_argument('--open3d', action='store_true',
                         help='Flag for installing Open3D Python library. Numpy, Scikit-Learn, Pandas, Pillow, matplotlib are automatically installed')
+    parser.add_argument('--opencv_python', action='store_true',
+                        help='Flag for installing OpenCV-python library.')
+    parser.add_argument('--opencv_contrib_python', action='store_true',
+                        help='Flag for installing opencv_contrib for python. `--opencv_python` flag needs to be set.')
 
     args = parser.parse_args()
 
@@ -89,18 +93,23 @@ def main():
         installer = install_gtsam(args.d, args.gtsam)
         installer.run()
 
-    if args.python3 or args.open3d:
+    if args.python3 or args.open3d or args.opencv_python:
         os.system('sudo apt install -y python3 python3-venv')
         shutil.rmtree('./python_venv', ignore_errors=True)
         os.system('> requirements.txt')
 
         if args.python3:
-            os.system(
-                'cat ./scripts/python_packages/numpy_matplotlib.txt >> ./requirements.txt')
+            os.system('cat ./scripts/python_packages/numpy_matplotlib.txt >> ./requirements.txt')
 
         if args.open3d:
-            os.system(
-                'cat ./scripts/python_packages/open3d.txt >> ./requirements.txt')
+            os.system('cat ./scripts/python_packages/open3d.txt >> ./requirements.txt')
+
+        if args.opencv_python:
+            os.system('cat ./scripts/python_packages/opencv-python.txt >> ./requirements.txt')
+
+            if args.opencv_contrib_python:
+                os.system('cat ./scripts/python_packages/opencv-contrib-python.txt >> ./requirements.txt')
+        
 
         os.system('chmod u+x ./scripts/python_packages/install_python_packages.sh')
         os.system('./scripts/python_packages/install_python_packages.sh')
