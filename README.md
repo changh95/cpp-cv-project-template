@@ -32,7 +32,7 @@ For now, it is highly recommended to use [Windows Subsystems for Linux (WSL)](ht
 - The project supports installing essential toolchains for C++ programming and debugging.
    - git, build-essentials, cppcheck, cmake, clang, gcc, clang-tools, clang-tidy, lldb, lld, libc++, libomp (:heavy_check_mark:)
 - The project supports the following 3rdParty libraries:
-   - Python3 + Numpy + matplotlib (:heavy_check_mark:)
+   - Python3 + basic packages (numpy, pandas, matplotlib, jupyter notebook, voila, tqdm, nbconvert) (:heavy_check_mark:)
    - Open3D (:heavy_check_mark:)
    - Eigen (:white_check_mark:)
    - OpenCV (:white_check_mark:)

@@ -46,7 +46,7 @@ def main():
     parser.add_argument('--gtsam', metavar='\b', type=str, default="",
                         help='Flag for installing GTSAM of specified version. (e.g. --gtsam 4.0.3)')
     parser.add_argument('--python3', action='store_true',
-                        help='Flag for installing Python3 and some useful tools. By default, numpy and matplotlib are installed')
+                        help='Flag for installing Python3 and some useful tools. By default, numpy, pandas, matplotlib, jupyter notebook, voila, tqdm, nbconvert are installed')
     parser.add_argument('--open3d', action='store_true',
                         help='Flag for installing Open3D Python library. Numpy, Scikit-Learn, Pandas, Pillow, matplotlib are automatically installed')
     parser.add_argument('--opencv_python', action='store_true',
@@ -99,7 +99,7 @@ def main():
         os.system('> requirements.txt')
 
         if args.python3:
-            os.system('cat ./scripts/python_packages/numpy_matplotlib.txt >> ./requirements.txt')
+            os.system('cat ./scripts/python_packages/basic_python_packages.txt >> ./requirements.txt')
 
         if args.open3d:
             os.system('cat ./scripts/python_packages/open3d.txt >> ./requirements.txt')
