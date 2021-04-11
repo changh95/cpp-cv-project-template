@@ -1,0 +1,39 @@
+BasedOnStyle: LLVM
+AlignAfterOpenBracket: Align
+AlignTrailingComments: true
+#AllowAllArgumentsOnNextLine: false
+AllowShortBlocksOnASingleLine: true
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: true
+#AllowShortLambdasOnASingleLine: All
+AllowShortLoopsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine : false
+AlwaysBreakTemplateDeclarations: true
+AlwaysBreakAfterDefinitionReturnType: false
+BreakBeforeBinaryOperators: None
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterEnum: true
+  AfterStruct: true
+  SplitEmptyFunction: true
+  AfterControlStatement: true
+  AfterEnum: true
+  AfterFunction: true
+  AfterClass: true
+  BeforeElse: true
+IndentWidth: 4
+PointerAlignment: Left
+TabWidth: 4
+UseTab: Never
+FixNamespaceComments: true
+PenaltyBreakBeforeFirstCallParameter: 10
+ColumnLimit: 200
+BinPackArguments: true
+BinPackParameters: true
+AllowAllParametersOfDeclarationOnNextLine: false
+IncludeBlocks: Regroup
+AlignConsecutiveDeclarations: false
+AlignConsecutiveAssignments: false
+AccessModifierOffset: -4
+Cpp11BracedListStyle: false
