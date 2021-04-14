@@ -1,6 +1,7 @@
 import os
 import shutil
 import multiprocessing
+import time
 
 
 class install_cpp_utils:
@@ -36,4 +37,5 @@ class install_cpp_utils:
 
         os.system(
             "git clone https://github.com/ben-strasser/fast-cpp-csv-parser.git " + path)
+        os.system("mkdir ./src/log")
         shutil.copyfile(path + "/csv.h", "./src/log/csv.h")
