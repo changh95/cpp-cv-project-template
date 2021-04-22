@@ -43,7 +43,7 @@ find_package(Threads REQUIRED)
 
 find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
-find_package (OpenCV)
+find_package (OpenCV PATHS /usr/local/opencv4)
 if (${OpenCV_FOUND})
 	message(STATUS "Found OpenCV")
 	add_definitions(-DOPENCV_DEVELOP)
