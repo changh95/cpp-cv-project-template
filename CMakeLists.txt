@@ -51,6 +51,14 @@ else (${OpenCV_FOUND})
 	message(STATUS "Could not support OpenCV")
 endif (${OpenCV_FOUND})
 
+find_package (PCL)
+if (${PCL_FOUND})
+	message(STATUS "Found PCL(Point Cloud Library)")
+	add_definitions(-DPCL_DEVELOP)
+else (${PCL_FOUND})
+	message(STATUS "Could not support PCL(Point Cloud Library)")
+endif (${PCL_FOUND})
+
 set(BIN_FILE solution)
 set(BIN_FOLDER_PATH bin/)
 set(3RDPARTY_PATH 3rdParty/)
@@ -60,6 +68,7 @@ include_directories(
     include/fast-cpp-csv-parser/
     ${Eigen3_INCLUDE_DIRS}
 	${OpenCV_INCLUDE_DIRS}
+	${PCL_INCLUDE_DIRS}
 )
 
 add_executable(${BIN_FILE}
@@ -73,4 +82,5 @@ target_link_libraries(
 	Eigen3::Eigen
 	Threads::Threads
 	${OpenCV_LIBS}
+	${PCL_LIBS}
 )
