@@ -4,7 +4,7 @@ project(
 	VERSION 0.1.0
 	LANGUAGES C CXX
 	)
-	
+
 # Standard CMake modules
 include(CTest)
 include(CMakeDependentOption)
@@ -43,6 +43,14 @@ find_package(Threads REQUIRED)
 
 find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
+find_package (OpenCV PATHS /usr/local/opencv4)
+if (${OpenCV_FOUND})
+	message(STATUS "Found OpenCV")
+	add_definitions(-DOPENCV_DEVELOP)
+else (${OpenCV_FOUND})
+	message(STATUS "Could not support OpenCV")
+endif (${OpenCV_FOUND})
+
 set(BIN_FILE solution)
 set(BIN_FOLDER_PATH bin/)
 set(3RDPARTY_PATH 3rdParty/)
@@ -51,13 +59,18 @@ include_directories(
     include/
     include/fast-cpp-csv-parser/
     ${Eigen3_INCLUDE_DIRS}
+	${OpenCV_INCLUDE_DIRS}
 )
 
-add_executable(${BIN_FILE} 
+add_executable(${BIN_FILE}
 src/main.cpp
 )
+
 set_target_properties(${BIN_FILE} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${BIN_FOLDER_PATH})
 
-target_link_libraries(${BIN_FILE} 
-Eigen3::Eigen
-Threads::Threads)
+target_link_libraries(
+	${BIN_FILE}
+	Eigen3::Eigen
+	Threads::Threads
+	${OpenCV_LIBS}
+)
