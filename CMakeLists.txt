@@ -29,21 +29,13 @@ message(STATUS "-Wall -Wextra -O0")
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-# Source files
-add_executable(CV_Project src/main.cpp)
-
-target_link_libraries(CV_Project
-	PRIVATE
-	#general spdlog::spdlog
-	)
-
 # csv reader depdency
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
 find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
-find_package (OpenCV PATHS /usr/local/opencv4)
+find_package (OpenCV PATHS ${CMAKE_CURRENT_SOURCE_DIR}/third_party/opencv/install)
 if (${OpenCV_FOUND})
 	message(STATUS "Found OpenCV")
 	add_definitions(-DOPENCV_DEVELOP)
@@ -51,7 +43,7 @@ else (${OpenCV_FOUND})
 	message(STATUS "Could not support OpenCV")
 endif (${OpenCV_FOUND})
 
-find_package (PCL)
+find_package (PCL PATHS ${CMAKE_CURRENT_SOURCE_DIR}/third_party/pcl/install)
 if (${PCL_FOUND})
 	message(STATUS "Found PCL(Point Cloud Library)")
 	add_definitions(-DPCL_DEVELOP)

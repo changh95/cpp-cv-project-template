@@ -11,15 +11,15 @@
 
 int main()
 {
-	std::cout << "Hello World!" << std::endl;
+    std::cout << "Hello World!" << std::endl;
 
-	#ifdef OPENCV_DEVELOP
-	std::cout << "OpenCV Version: " << CV_VERSION << std::endl;
-	#endif
+#ifdef OPENCV_DEVELOP
+    std::cout << "OpenCV Version: " << CV_VERSION << std::endl;
+#endif
 
-	#ifdef PCL_DEVELOP
-	std::cout << "PCL(Point Cloud Libarry) Version: " << PCL_VERSION_PRETTY << std::endl;
-	#endif
+#ifdef PCL_DEVELOP
+    std::cout << "PCL(Point Cloud Libarry) Version: " << PCL_VERSION_PRETTY << std::endl;
+#endif
 
-	return 0;
+    return 0;
 }
