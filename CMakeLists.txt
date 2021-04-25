@@ -29,14 +29,6 @@ message(STATUS "-Wall -Wextra -O0")
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-# Source files
-add_executable(CV_Project src/main.cpp)
-
-target_link_libraries(CV_Project
-	PRIVATE
-	#general spdlog::spdlog
-	)
-
 # csv reader depdency
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
