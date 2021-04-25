@@ -18,6 +18,7 @@ class install_gtsam:
 
         # Download GTSAM source code
         os.system("mkdir " + self.install_dir)
+        os.system("mkdir " + self.install_dir + "/install")
         os.system("wget -O " + self.install_dir +
                   "/gtsam.zip https://github.com/borglab/gtsam/archive/refs/tags/" + self.version_num + ".zip")
         os.system("unzip " + self.install_dir +
@@ -27,7 +28,7 @@ class install_gtsam:
         os.system("mkdir " + self.install_dir + "/build")
         os.chdir(self.install_dir + "/build")
 
-        exec_string = "cmake ../gtsam-" + self.version_num
+        exec_string = "cmake ../gtsam-" + self.version_num + " -DCMAKE_INSTALL_PREFIX=../install"
 
         if self.d:
             exec_string += " -DCMAKE_BUILD_TYPE=Debug"
@@ -41,6 +42,7 @@ class install_gtsam:
         num_cpu_cores = multiprocessing.cpu_count()
         os.system("make check -j" + str(num_cpu_cores-1))
         os.system("make -j" + str(num_cpu_cores-1))
+        os.system("sudo make install")
 
         # Delete source files
         os.chdir("../")

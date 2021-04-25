@@ -19,6 +19,7 @@ class install_ceres_solver:
 
         # Download source code
         os.system("mkdir " + self.install_dir)
+        os.system("mkdir " + self.install_dir + "/install")
         os.system("wget -O " + self.install_dir +
                   "/ceres-solver.tar.gz http://ceres-solver.org/ceres-solver-" + self.version_num + ".tar.gz")
         os.system("tar zxf " + self.install_dir +
@@ -31,7 +32,7 @@ class install_ceres_solver:
         os.chdir(self.install_dir + "/ceres-bin")
 
         exec_string = "cmake ../ceres-solver-" + self.version_num + \
-            " -DEXPORT_BUILD_DIR=ON -DCMAKE_INSTALL_PREFIX=\"../solver\""
+            " -DEXPORT_BUILD_DIR=ON -DCMAKE_INSTALL_PREFIX=\"../solver\" -DCMAKE_INSTALL_PREFIX=../install"
 
         if self.d:
             exec_string += " -DCMAKE_BUILD_TYPE=Debug"
@@ -45,6 +46,7 @@ class install_ceres_solver:
         num_cpu_cores = multiprocessing.cpu_count()
         os.system("make -j" + str(num_cpu_cores-1))
         os.system("make test")
+        os.system("sudo make install")
         # No `make install`, since this will install in system.
 
         # Delete source files

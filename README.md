@@ -34,11 +34,11 @@ For now, it is highly recommended to use [Windows Subsystems for Linux (WSL)](ht
 - The project supports the following 3rdParty libraries:
    - Python3 + basic packages (numpy, pandas, matplotlib, jupyter notebook, voila, tqdm, nbconvert) (:heavy_check_mark:)
    - Open3D (:heavy_check_mark:)
-   - Eigen (:white_check_mark:)
+   - Eigen (:heavy_check_mark:)
    - OpenCV (:heavy_check_mark:)
       - Non-free algorithms enabled
-   - Ceres-solver (:white_check_mark:)
-   - GTSAM (:white_check_mark:)
+   - Ceres-solver (:heavy_check_mark:)
+   - GTSAM (:heavy_check_mark:)
    - PCL (:heavy_check_mark:)
       - Visualization disabled
    - OpenGL (:heavy_multiplication_x:)

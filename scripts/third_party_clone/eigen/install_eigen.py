@@ -21,9 +21,10 @@ class install_eigen:
 
         # CMake configure
         os.system("mkdir " + self.install_dir + "/build")
+        os.system("mkdir " + self.install_dir + "/install")
         os.chdir(self.install_dir + "/build")
 
-        exec_string = "cmake ../eigen-" + self.version_num
+        exec_string = "cmake ../eigen-" + self.version_num + " -DCMAKE_INSTALL_PREFIX=../install"
 
         if self.d:
             exec_string += " -DCMAKE_BUILD_TYPE=Debug"
@@ -36,6 +37,7 @@ class install_eigen:
         # Build
         num_cpu_cores = multiprocessing.cpu_count()
         os.system("make -j" + str(num_cpu_cores-1))
+        os.system("sudo make install")
 
         # Delete source files
         os.chdir("../")
