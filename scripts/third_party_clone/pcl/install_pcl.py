@@ -27,9 +27,12 @@ class install_pcl:
 
         # CMake configure
         os.system("mkdir " + self.install_dir + "/build")
+        os.system("mkdir " + self.install_dir + "/install")
         os.chdir(self.install_dir + "/build")
 
-        exec_string = "cmake ../pcl-pcl-" + self.version_num + " -DBUILD_visualization=OFF"
+        # Disable visualization module due to lack of VTK support
+        # TODO: Enable visualization module
+        exec_string = "cmake ../pcl-pcl-" + self.version_num + " -DBUILD_visualization=OFF -DCMAKE_INSTALL_PREFIX=../install"
 
         if self.d:
             exec_string += " -DCMAKE_BUILD_TYPE=Debug"

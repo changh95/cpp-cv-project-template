@@ -43,13 +43,23 @@ find_package(Threads REQUIRED)
 
 find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
-find_package (OpenCV PATHS /usr/local/opencv4)
+message(STATUS )
+
+find_package (OpenCV PATHS ${CMAKE_CURRENT_SOURCE_DIR}/third_party/opencv/install)
 if (${OpenCV_FOUND})
 	message(STATUS "Found OpenCV")
 	add_definitions(-DOPENCV_DEVELOP)
 else (${OpenCV_FOUND})
 	message(STATUS "Could not support OpenCV")
 endif (${OpenCV_FOUND})
+
+find_package (PCL PATHS ${CMAKE_CURRENT_SOURCE_DIR}/third_party/pcl/install)
+if (${PCL_FOUND})
+	message(STATUS "Found PCL(Point Cloud Library)")
+	add_definitions(-DPCL_DEVELOP)
+else (${PCL_FOUND})
+	message(STATUS "Could not support PCL(Point Cloud Library)")
+endif (${PCL_FOUND})
 
 set(BIN_FILE solution)
 set(BIN_FOLDER_PATH bin/)
@@ -60,6 +70,7 @@ include_directories(
     include/fast-cpp-csv-parser/
     ${Eigen3_INCLUDE_DIRS}
 	${OpenCV_INCLUDE_DIRS}
+	${PCL_INCLUDE_DIRS}
 )
 
 add_executable(${BIN_FILE}
@@ -73,4 +84,5 @@ target_link_libraries(
 	Eigen3::Eigen
 	Threads::Threads
 	${OpenCV_LIBS}
+	${PCL_LIBS}
 )
