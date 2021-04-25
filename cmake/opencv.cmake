@@ -12,7 +12,3 @@ if (${OpenCV_FOUND})
 else (${OpenCV_FOUND})
 	message(STATUS "Could not support OpenCV")
 endif (${OpenCV_FOUND})
-
-if (${OpenCV_FOUND})
-	set(opencv_libs ${OPENCV_LIBS})
-endif (${OpenCV_FOUND})
