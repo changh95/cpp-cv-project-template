@@ -53,11 +53,11 @@ set_target_properties(${BIN_FILE} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${BIN_FOLD
 
 target_link_libraries(
 	${BIN_FILE}
-	Eigen3::Eigen
-	Threads::Threads
+	${THREAD_LIBS}
 	${OpenCV_LIBS}
+	${EIGEN_LIBS}
 	${PCL_LIBS}
-	Ceres::ceres
-	gtsam
-	spdlog::spdlog
+	${CERES_LIBS}
+	${GTSAM_LIBS}
+	${SPDLOG_LIBS}
 )

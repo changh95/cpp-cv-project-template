@@ -9,6 +9,7 @@ if (${Eigen3_FOUND})
         ${Eigen3_INCLUDE_DIRS}
     )
 
+    set(EIGEN_LIBS Eigen3::Eigen)
 else (${Eigen3_FOUND})
 	message(STATUS "Could not support Eigen3")
 endif (${Eigen3_FOUND})

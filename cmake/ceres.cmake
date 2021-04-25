@@ -9,6 +9,8 @@ if (${Ceres_FOUND})
         ${Ceres_INCLUDE_DIRS}
     )
 
+    set(CERES_LIBS Ceres::ceres)
+
 else (${Ceres_FOUND})
 	message(STATUS "Could not support Ceres-solver")
 endif (${Ceres_FOUND})
