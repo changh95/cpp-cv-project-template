@@ -43,8 +43,6 @@ find_package(Threads REQUIRED)
 
 find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
-message(STATUS )
-
 find_package (OpenCV PATHS ${CMAKE_CURRENT_SOURCE_DIR}/third_party/opencv/install)
 if (${OpenCV_FOUND})
 	message(STATUS "Found OpenCV")
