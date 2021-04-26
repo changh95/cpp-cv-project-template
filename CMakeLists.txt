@@ -17,6 +17,10 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DOR}/cmake")
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(opencv)
 include(pcl)
+include(eigen)
+include(ceres)
+include(gtsam)
+include(utils)
 #include(...)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -37,13 +41,13 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
 find_package (Eigen3 3.3 REQUIRED NO_MODULE)
-
 set(BIN_FILE solution)
 set(BIN_FOLDER_PATH bin/)
 set(3RDPARTY_PATH 3rdParty/)
 
 include_directories(
     include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
     include/fast-cpp-csv-parser/
     ${Eigen3_INCLUDE_DIRS}
 )
@@ -56,8 +60,11 @@ set_target_properties(${BIN_FILE} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${BIN_FOLD
 
 target_link_libraries(
 	${BIN_FILE}
-	Eigen3::Eigen
-	Threads::Threads
+	${THREAD_LIBS}
 	${OpenCV_LIBS}
+	${EIGEN_LIBS}
 	${PCL_LIBS}
+	${CERES_LIBS}
+	${GTSAM_LIBS}
+	${SPDLOG_LIBS}
 )

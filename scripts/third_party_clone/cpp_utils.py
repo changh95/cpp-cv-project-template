@@ -22,11 +22,13 @@ class install_cpp_utils:
             "git clone https://github.com/gabime/spdlog.git " + path)
 
         os.system("mkdir " + path + "/../build")
+        os.system("mkdir " + path + "/../install")
         os.chdir(path + "/../build")
-        os.system("cmake ../spdlog")
+        os.system("cmake ../spdlog -DCMAKE_INSTALL_PREFIX=../install")
 
         num_cpu_cores = multiprocessing.cpu_count()
         os.system("make -j" + str(num_cpu_cores - 1))
+        os.system("sudo make install")
 
         os.chdir("../../../")
 
