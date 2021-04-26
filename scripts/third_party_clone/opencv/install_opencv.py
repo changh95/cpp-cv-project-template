@@ -11,7 +11,7 @@ class install_opencv:
 
     def run(self):
         # Remove any pre-installed OpenCV
-        os.system("rm -rf ./third_party/opencv*")
+        os.system("sudo rm -rf ./third_party/opencv*")
 
         # Download opencv source code
         os.system("mkdir " + self.install_dir)

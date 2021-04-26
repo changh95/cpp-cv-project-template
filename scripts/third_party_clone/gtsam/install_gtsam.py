@@ -10,11 +10,11 @@ class install_gtsam:
 
     def run(self):
         # Remove any pre-installed GTSAM
-        os.system("rm -rf ./third_party/GTSAM")
+        os.system("sudo rm -rf ./third_party/GTSAM")
 
         # Install dependencies
         print("GTSAM requires libboost-all-dev (Boost)")
-        os.system("sudo sudo apt install -y libboost-all-dev")
+        os.system("sudo apt install -y libboost-all-dev")
 
         # Download GTSAM source code
         os.system("mkdir " + self.install_dir)
@@ -28,7 +28,7 @@ class install_gtsam:
         os.system("mkdir " + self.install_dir + "/build")
         os.chdir(self.install_dir + "/build")
 
-        exec_string = "cmake ../gtsam-" + self.version_num + " -DCMAKE_INSTALL_PREFIX=../install"
+        exec_string = "cmake ../gtsam-" + self.version_num + " -DCMAKE_INSTALL_PREFIX=../install -DGTSAM_USE_SYSTEM_EIGEN=OFF -DEIGEN3_INCLUDE_DIR=../../Eigen/install/include/eigen3"
 
         if self.d:
             exec_string += " -DCMAKE_BUILD_TYPE=Debug"

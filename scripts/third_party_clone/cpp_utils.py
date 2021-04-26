@@ -16,7 +16,7 @@ class install_cpp_utils:
     def __install_spdlog(self):
         # https://github.com/gabime/spdlog.git
         path = self.install_dir + "/spdlog/spdlog"
-        shutil.rmtree(path, ignore_errors=True)
+        os.system("sudo rm -rf " + self.install_dir + "/spdlog")
 
         os.system(
             "git clone https://github.com/gabime/spdlog.git " + path)

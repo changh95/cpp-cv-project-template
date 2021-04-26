@@ -82,10 +82,18 @@ def main():
         installer.run()
 
     if args.pcl != "":
+        if args.eigen == "":
+            installer = install_eigen(args.d, "3.3.9")
+            installer.run()
+
         installer = install_pcl(args.d, args.pcl)
         installer.run()
 
     if args.ceres != "":
+        if args.eigen == "":
+            installer = install_eigen(args.d, "3.3.9")
+            installer.run()
+
         installer = install_ceres_solver(args.d, args.ceres)
         installer.run()
 
