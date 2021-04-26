@@ -16,7 +16,7 @@ class install_pcl:
             "sudo apt install -y libboost-all-dev libflann-dev")
 
         # Remove any pre-installed PCL
-        os.system("rm -rf ./third_party/pcl")
+        os.system("sudo rm -rf ./third_party/pcl")
 
         # Download PCL source code
         os.system("mkdir " + self.install_dir)
@@ -32,7 +32,7 @@ class install_pcl:
 
         # Disable visualization module due to lack of VTK support
         # TODO: Enable visualization module
-        exec_string = "cmake ../pcl-pcl-" + self.version_num + " -DBUILD_visualization=OFF -DCMAKE_INSTALL_PREFIX=../install"
+        exec_string = "cmake ../pcl-pcl-" + self.version_num + " -DBUILD_visualization=OFF -DCMAKE_INSTALL_PREFIX=../install -DEIGEN_ROOT=../../Eigen/install/"
 
         if self.d:
             exec_string += " -DCMAKE_BUILD_TYPE=Debug"
@@ -45,7 +45,7 @@ class install_pcl:
         # Build
         num_cpu_cores = multiprocessing.cpu_count()
         os.system("make -j" + str(num_cpu_cores-1))
-        os.system("sudo make install")
+        os.system("sudo make install -j" + str(num_cpu_cores-1))
 
         # Delete source files
         os.chdir("../")

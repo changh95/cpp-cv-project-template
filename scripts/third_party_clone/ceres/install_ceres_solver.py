@@ -10,7 +10,7 @@ class install_ceres_solver:
 
     def run(self):
         # Remove any pre-installed Ceres-solver
-        os.system("rm -rf ./third_party/ceres-solver")
+        os.system("sudo rm -rf ./third_party/ceres-solver")
 
         # Install dependencies
         print("Ceres-solver installation dependencies: libgoogle-glog-dev (glog), libgflags-dev (gflags), libatlas-base-dev (LAPACK & BLAS), libeigen3-dev (Eigen3), libsuitesparse-dev (SuiteSparse)")
@@ -31,7 +31,7 @@ class install_ceres_solver:
         os.chdir(self.install_dir + "/ceres-bin")
 
         exec_string = "cmake ../ceres-solver-" + self.version_num + \
-            " -DEXPORT_BUILD_DIR=ON -DCMAKE_INSTALL_PREFIX=../install"
+            " -DEXPORT_BUILD_DIR=ON -DCMAKE_INSTALL_PREFIX=../install -DEigen3_DIR=../../Eigen/install/share/eigen3/cmake"
 
         if self.d:
             exec_string += " -DCMAKE_BUILD_TYPE=Debug"
@@ -46,7 +46,6 @@ class install_ceres_solver:
         os.system("make -j" + str(num_cpu_cores-1))
         os.system("make test")
         os.system("sudo make install")
-        # No `make install`, since this will install in system.
 
         # Delete source files
         os.chdir("../")
