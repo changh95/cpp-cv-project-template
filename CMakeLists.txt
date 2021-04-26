@@ -36,6 +36,11 @@ message(STATUS "-Wall -Wextra -O0")
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
+# csv reader depdency
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+
+find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 set(BIN_FILE solution)
 set(BIN_FOLDER_PATH bin/)
 set(3RDPARTY_PATH 3rdParty/)
@@ -43,6 +48,8 @@ set(3RDPARTY_PATH 3rdParty/)
 include_directories(
     include/
     ${CMAKE_CURRENT_SOURCE_DIR}/src
+    include/fast-cpp-csv-parser/
+    ${Eigen3_INCLUDE_DIRS}
 )
 
 add_executable(${BIN_FILE}
