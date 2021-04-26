@@ -10,7 +10,7 @@ class install_eigen:
 
     def run(self):
         # Remove any pre-installed Eigen
-        os.system("rm -rf ./third_party/Eigen")
+        os.system("sudo rm -rf ./third_party/Eigen")
 
         # Download Eigen source code
         os.system("mkdir " + self.install_dir)
