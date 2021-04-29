@@ -42,7 +42,7 @@ def main():
     parser.add_argument('--pcl', metavar='\b', type=str, default="",
                         help='Flag for installing PCL of specified version. (e.g. --pcl 1.11.1)')
     parser.add_argument('--ceres', metavar='\b', type=str, default="",
-                        help='Flag for installing Ceres-solver of specified version. (e.g. --ceres-solver 2.0.0)')
+                        help='Flag for installing Ceres-solver of specified version. (e.g. --ceres 2.0.0)')
     parser.add_argument('--gtsam', metavar='\b', type=str, default="",
                         help='Flag for installing GTSAM of specified version. (e.g. --gtsam 4.0.3)')
     parser.add_argument('--python3', action='store_true',
