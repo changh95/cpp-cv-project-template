@@ -11,9 +11,9 @@ class install_pcl:
     def run(self):
         # Install dependencies
         print(
-            "PCL installation dependencies: libboost-all-dev (Boost), libflann-dev (FLANN)")
+            "PCL installation dependencies: libboost-all-dev (Boost), libflann-dev (FLANN), ligblew-dev (GLEW)")
         os.system(
-            "sudo apt install -y libboost-all-dev libflann-dev")
+            "sudo apt install -y libboost-all-dev libflann-dev libglew-dev")
 
         # Remove any pre-installed PCL
         os.system("sudo rm -rf ./third_party/pcl")
