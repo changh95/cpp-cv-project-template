@@ -3,11 +3,11 @@ import multiprocessing
 
 
 class install_eigen:
-    def __init__(self, d, version_num, password):
+    def __init__(self, d, version_num, linux_password):
         self.d = d
         self.version_num = version_num
         self.install_dir = "./third_party/Eigen"
-        self.pw = password
+        self.pw = linux_password
 
     def run(self):
         self.pw.redeem()

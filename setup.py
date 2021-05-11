@@ -70,7 +70,7 @@ def main():
     parser.add_argument('--opencv_contrib_python', action='store_true',
                         help='Flag for installing opencv_contrib for python. `--opencv_python` flag needs to be set.')
     parser.add_argument('--password', metavar='\b', type=str, default="",
-    help='Provide your Linux password to avoid manually typing in your password for every auto internal \'sudo\' command. If you are concerned about security, do not use this option.')
+    help='Provide your Linux password to avoid manually typing in your password for every auto internal \'sudo\' command usage. This will leave traces of your password in your shell history - if you are concerned about security, do not use this option.')
 
     args = parser.parse_args()
 

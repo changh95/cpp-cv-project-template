@@ -3,12 +3,12 @@ import multiprocessing
 
 
 class install_opencv:
-    def __init__(self, d, version_num, build_contrib, password):
+    def __init__(self, d, version_num, build_contrib, linux_password):
         self.d = d
         self.version_num = version_num
         self.install_dir = "./third_party/opencv"
         self.build_contrib = build_contrib
-        self.pw = password
+        self.pw = linux_password
 
     def run(self):
         self.pw.redeem()

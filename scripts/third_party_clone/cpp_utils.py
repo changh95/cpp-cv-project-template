@@ -5,10 +5,10 @@ import time
 
 
 class install_cpp_utils:
-    def __init__(self, d, password):
+    def __init__(self, d, linux_password):
         self.d = d
         self.install_dir = "./third_party"
-        self.pw = password
+        self.pw = linux_password
 
     def run(self):
         self.__install_csv_parser()
