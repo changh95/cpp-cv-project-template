@@ -3,13 +3,16 @@ import multiprocessing
 
 
 class install_opencv:
-    def __init__(self, d, version_num, build_contrib):
+    def __init__(self, d, version_num, build_contrib, password):
         self.d = d
         self.version_num = version_num
         self.install_dir = "./third_party/opencv"
         self.build_contrib = build_contrib
+        self.pw = password
 
     def run(self):
+        self.pw.redeem()
+
         # Remove any pre-installed OpenCV
         os.system("sudo rm -rf ./third_party/opencv*")
 
@@ -47,6 +50,7 @@ class install_opencv:
             return
 
         # Build
+        self.pw.redeem()
         num_cpu_cores = multiprocessing.cpu_count()
         os.system("make -j" + str(num_cpu_cores-1))
         os.system("sudo make install")

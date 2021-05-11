@@ -3,12 +3,14 @@ import multiprocessing
 
 
 class install_gtsam:
-    def __init__(self, d, version_num):
+    def __init__(self, d, version_num, linux_password):
         self.d = d
         self.version_num = version_num
         self.install_dir = "./third_party/GTSAM"
+        self.pw = linux_password
 
     def run(self):
+        self.pw.redeem()
         # Remove any pre-installed GTSAM
         os.system("sudo rm -rf ./third_party/GTSAM")
 
@@ -39,6 +41,7 @@ class install_gtsam:
             return
 
         # Build
+        self.pw.redeem()
         num_cpu_cores = multiprocessing.cpu_count()
         os.system("make check -j" + str(num_cpu_cores-1))
         os.system("make -j" + str(num_cpu_cores-1))

@@ -3,12 +3,15 @@ import multiprocessing
 
 
 class install_pcl:
-    def __init__(self, d, version_num):
+    def __init__(self, d, version_num, linux_password):
         self.d = d
         self.version_num = version_num
         self.install_dir = "./third_party/pcl"
+        self.pw = linux_password
 
     def run(self):
+        self.pw.redeem()
+
         # Install dependencies
         print(
             "PCL installation dependencies: libboost-all-dev (Boost), libflann-dev (FLANN), ligblew-dev (GLEW)")
@@ -43,6 +46,7 @@ class install_pcl:
             return
 
         # Build
+        self.pw.redeem()
         num_cpu_cores = multiprocessing.cpu_count()
         os.system("make -j" + str(num_cpu_cores-1))
         os.system("sudo make install -j" + str(num_cpu_cores-1))

@@ -3,12 +3,15 @@ import multiprocessing
 
 
 class install_eigen:
-    def __init__(self, d, version_num):
+    def __init__(self, d, version_num, password):
         self.d = d
         self.version_num = version_num
         self.install_dir = "./third_party/Eigen"
+        self.pw = password
 
     def run(self):
+        self.pw.redeem()
+
         # Remove any pre-installed Eigen
         os.system("sudo rm -rf ./third_party/Eigen")
 
@@ -35,6 +38,7 @@ class install_eigen:
             return
 
         # Build
+        self.pw.redeem()
         num_cpu_cores = multiprocessing.cpu_count()
         os.system("make -j" + str(num_cpu_cores-1))
         os.system("sudo make install")
