@@ -1,10 +1,10 @@
 ![title](./resource/project_title.png)
 
-## Purpose
+## Purpose :fire:
 
 This repo contains a C++ project template for developing computer vision applications.
 
-## Features
+## Features :star2:
 
 - The project comprise a widely-used C++ project structure.
 - The project supports installing essential toolchains for C++ programming and debugging.
@@ -29,7 +29,7 @@ Status legend:
 :white_check_mark: - Partially supported / Build-only, 
 :heavy_multiplication_x: - Not supported yet
 
-## How to use
+## How to use :book:
 
 >You need [Python3](https://www.python.org/) to use the automation scripts for project setup and build.
 
@@ -51,12 +51,11 @@ chmod u+x setup.py
 
 - For now, Windows native build is not supported. Instead, you may use [Windows Subsystems for Linux (WSL)](https://docs.microsoft.com/en-gb/windows/wsl/install-win10) to use the build scripts.
 
-
-## License
+## License :bank:
 
 This repo is licensed under MIT license. Click [here]([./LICENSE](https://github.com/changh95/cpp-cv-project-template/blob/main/LICENSE)) to view the license.
 
-## Contributors
+## Contributors :sunglasses:
 
 Thanks goes to these wonderful people!
 
