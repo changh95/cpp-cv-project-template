@@ -5,15 +5,18 @@ import time
 
 
 class install_cpp_utils:
-    def __init__(self, d):
+    def __init__(self, d, linux_password):
         self.d = d
         self.install_dir = "./third_party"
+        self.pw = linux_password
 
     def run(self):
         self.__install_csv_parser()
         self.__install_spdlog()
 
     def __install_spdlog(self):
+        self.pw.redeem()
+
         # https://github.com/gabime/spdlog.git
         path = self.install_dir + "/spdlog/spdlog"
         os.system("sudo rm -rf " + self.install_dir + "/spdlog")
@@ -33,6 +36,8 @@ class install_cpp_utils:
         os.chdir("../../../")
 
     def __install_csv_parser(self):
+        self.pw.redeem()
+        
         # https://github.com/ben-strasser/fast-cpp-csv-parser
         path = self.install_dir + "/fast-cpp-csv-parser"
         shutil.rmtree(path, ignore_errors=True)

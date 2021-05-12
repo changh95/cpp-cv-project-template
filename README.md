@@ -20,11 +20,11 @@ chmod u+x setup.py
 
 ```
 
+- You can also use the optional `--password` argument to avoid manually typing your Linux password for every internal sudo command usage.
+
 ### Windows - How to use
 
-Download the latest [Python3](https://www.python.org/downloads/windows/).
-
-For now, it is highly recommended to use [Windows Subsystems for Linux (WSL)](https://docs.microsoft.com/en-gb/windows/wsl/install-win10) to use the build scripts. Hopefully I can make build scripts for Windows soon enough...
+- For now, Windows native build is not supported. Instead, you may use [Windows Subsystems for Linux (WSL)](https://docs.microsoft.com/en-gb/windows/wsl/install-win10) to use the build scripts.
 
 ## Features
 
@@ -43,8 +43,8 @@ For now, it is highly recommended to use [Windows Subsystems for Linux (WSL)](ht
       - Visualization disabled
    - OpenGL (:heavy_multiplication_x:)
    - GTest (:heavy_multiplication_x:)
-   - spdlog (:white_check_mark:)
-   - fast-cpp-csv-parser (:white_check_mark:)
+   - spdlog (:heavy_check_mark:)
+   - fast-cpp-csv-parser (:heavy_check_mark:)
 
 Status legend:
 :heavy_check_mark: - Fully supported, 
