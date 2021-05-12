@@ -1,4 +1,4 @@
-# cpp-cv-project-template
+![title](./resource/project_title.png)
 
 ## Purpose
 
