@@ -3,15 +3,18 @@ import multiprocessing
 
 
 class install_opencv:
-    def __init__(self, d, version_num, build_contrib):
+    def __init__(self, d, version_num, build_contrib, linux_password):
         self.d = d
         self.version_num = version_num
         self.install_dir = "./third_party/opencv"
         self.build_contrib = build_contrib
+        self.pw = linux_password
 
     def run(self):
+        self.pw.redeem()
+
         # Remove any pre-installed OpenCV
-        os.system("rm -rf ./third_party/opencv*")
+        os.system("sudo rm -rf ./third_party/opencv*")
 
         # Download opencv source code
         os.system("mkdir " + self.install_dir)
@@ -28,10 +31,11 @@ class install_opencv:
 
         # CMake configure
         os.system("mkdir " + self.install_dir + "/build")
+        os.system("mkdir " + self.install_dir + "/install")
         os.chdir(self.install_dir + "/build")
 
         # We enable non-free algorithms (e.g. SIFT, SURF...)
-        exec_string = "cmake ../opencv-" + self.version_num + " -DOPENCV_ENABLE_NONFREE=ON"
+        exec_string = "cmake ../opencv-" + self.version_num + " -DOPENCV_ENABLE_NONFREE=ON -DCMAKE_INSTALL_PREFIX=../install"
 
         if self.build_contrib:
             exec_string += " -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-" + \
@@ -46,8 +50,11 @@ class install_opencv:
             return
 
         # Build
+        self.pw.redeem()
         num_cpu_cores = multiprocessing.cpu_count()
         os.system("make -j" + str(num_cpu_cores-1))
+        self.pw.redeem()
+        os.system("sudo make install")
 
         # Delete source files
         os.chdir("../")

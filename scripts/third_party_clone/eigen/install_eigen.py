@@ -3,14 +3,17 @@ import multiprocessing
 
 
 class install_eigen:
-    def __init__(self, d, version_num):
+    def __init__(self, d, version_num, linux_password):
         self.d = d
         self.version_num = version_num
         self.install_dir = "./third_party/Eigen"
+        self.pw = linux_password
 
     def run(self):
+        self.pw.redeem()
+
         # Remove any pre-installed Eigen
-        os.system("rm -rf ./third_party/Eigen")
+        os.system("sudo rm -rf ./third_party/Eigen")
 
         # Download Eigen source code
         os.system("mkdir " + self.install_dir)
@@ -21,9 +24,10 @@ class install_eigen:
 
         # CMake configure
         os.system("mkdir " + self.install_dir + "/build")
+        os.system("mkdir " + self.install_dir + "/install")
         os.chdir(self.install_dir + "/build")
 
-        exec_string = "cmake ../eigen-" + self.version_num
+        exec_string = "cmake ../eigen-" + self.version_num + " -DCMAKE_INSTALL_PREFIX=../install"
 
         if self.d:
             exec_string += " -DCMAKE_BUILD_TYPE=Debug"
@@ -34,8 +38,11 @@ class install_eigen:
             return
 
         # Build
+        self.pw.redeem()
         num_cpu_cores = multiprocessing.cpu_count()
         os.system("make -j" + str(num_cpu_cores-1))
+        self.pw.redeem()
+        os.system("sudo make install")
 
         # Delete source files
         os.chdir("../")

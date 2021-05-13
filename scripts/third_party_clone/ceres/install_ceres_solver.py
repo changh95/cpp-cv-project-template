@@ -3,14 +3,17 @@ import multiprocessing
 
 
 class install_ceres_solver:
-    def __init__(self, d, version_num):
+    def __init__(self, d, version_num, linux_password):
         self.d = d
         self.version_num = version_num
         self.install_dir = "./third_party/ceres-solver"
+        self.pw = linux_password
 
     def run(self):
+        self.pw.redeem()
+
         # Remove any pre-installed Ceres-solver
-        os.system("rm -rf ./third_party/ceres-solver")
+        os.system("sudo rm -rf ./third_party/ceres-solver")
 
         # Install dependencies
         print("Ceres-solver installation dependencies: libgoogle-glog-dev (glog), libgflags-dev (gflags), libatlas-base-dev (LAPACK & BLAS), libeigen3-dev (Eigen3), libsuitesparse-dev (SuiteSparse)")
@@ -26,12 +29,12 @@ class install_ceres_solver:
 
         # CMake configure
         os.system("mkdir " + self.install_dir + "/ceres-bin")
-        os.system("mkdir " + self.install_dir + "/solver")
+        os.system("mkdir " + self.install_dir + "/install")
 
         os.chdir(self.install_dir + "/ceres-bin")
 
         exec_string = "cmake ../ceres-solver-" + self.version_num + \
-            " -DEXPORT_BUILD_DIR=ON -DCMAKE_INSTALL_PREFIX=\"../solver\""
+            " -DEXPORT_BUILD_DIR=ON -DCMAKE_INSTALL_PREFIX=../install -DEigen3_DIR=../../Eigen/install/share/eigen3/cmake"
 
         if self.d:
             exec_string += " -DCMAKE_BUILD_TYPE=Debug"
@@ -42,10 +45,13 @@ class install_ceres_solver:
             return
 
         # Build
+        self.pw.redeem()
         num_cpu_cores = multiprocessing.cpu_count()
         os.system("make -j" + str(num_cpu_cores-1))
+        self.pw.redeem()
         os.system("make test")
-        # No `make install`, since this will install in system.
+        self.pw.redeem()
+        os.system("sudo make install")
 
         # Delete source files
         os.chdir("../")
