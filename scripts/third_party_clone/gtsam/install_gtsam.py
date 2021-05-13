@@ -44,7 +44,9 @@ class install_gtsam:
         self.pw.redeem()
         num_cpu_cores = multiprocessing.cpu_count()
         os.system("make check -j" + str(num_cpu_cores-1))
+        self.pw.redeem()
         os.system("make -j" + str(num_cpu_cores-1))
+        self.pw.redeem()
         os.system("sudo make install")
 
         # Delete source files

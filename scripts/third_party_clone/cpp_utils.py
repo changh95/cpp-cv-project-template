@@ -29,8 +29,10 @@ class install_cpp_utils:
         os.chdir(path + "/../build")
         os.system("cmake ../spdlog -DCMAKE_INSTALL_PREFIX=../install")
 
+        self.pw.redeem()
         num_cpu_cores = multiprocessing.cpu_count()
         os.system("make -j" + str(num_cpu_cores - 1))
+        self.pw.redeem()
         os.system("sudo make install")
 
         os.chdir("../../../")

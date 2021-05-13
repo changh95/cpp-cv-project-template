@@ -49,6 +49,7 @@ class install_pcl:
         self.pw.redeem()
         num_cpu_cores = multiprocessing.cpu_count()
         os.system("make -j" + str(num_cpu_cores-1))
+        self.pw.redeem()
         os.system("sudo make install -j" + str(num_cpu_cores-1))
 
         # Delete source files
