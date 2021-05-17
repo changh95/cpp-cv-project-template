@@ -12,6 +12,7 @@ class install_cpp_utils:
 
     def run(self):
         self.__install_csv_parser()
+        self.__install_nlohmann_json()
         self.__install_spdlog()
 
     def __install_spdlog(self):
@@ -48,3 +49,15 @@ class install_cpp_utils:
             "git clone https://github.com/ben-strasser/fast-cpp-csv-parser.git " + path)
         os.system("mkdir ./src/log")
         shutil.copyfile(path + "/csv.h", "./src/log/csv.h")
+
+    def __install_nlohmann_json(self):
+        self.pw.redeem()
+
+        # https://github.com/nlohmann/json
+        path = self.install_dir + "/nlohmann_json"
+        shutil.rmtree(path, ignore_errors=True)
+        os.system("mkdir -p " + path)
+
+        os.system("wget -O " + path + "/json.hpp https://raw.githubusercontent.com/nlohmann/json/develop/single_include/nlohmann/json.hpp")
+        os.system("mkdir -p ./src/json/nlohmann")
+        shutil.copyfile(path + "/json.hpp", "./src/json/nlohmann/json.hpp")
