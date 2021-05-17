@@ -22,6 +22,8 @@
 #endif
 
 #ifdef SPDLOG_DEVELOP
+#include <fstream>
+#include <json/nlohmann/json.hpp>
 #include <log/csv.h>
 #include <spdlog/version.h>
 #endif
@@ -56,9 +58,16 @@ int main()
     io::CSVReader<3> reader("./resource/sampleCSV.csv");
     std::string first, second, third;
     while (reader.read_row(first, second, third))
-    {
         std::cout << first << second << " " << third << std::endl;
-    }
+
+    std::ifstream file("./resource/sampleJSON.json");
+    nlohmann::json j;
+    file >> j;
+    std::vector<std::string> keys = { "first", "second", "third" };
+    std::string str;
+    for (const auto& key : keys)
+        str += j[key];
+    std::cout << str << std::endl;
 #endif
 
     return 0;
