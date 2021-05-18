@@ -1,0 +1,27 @@
+# =================================================================
+# Compile options
+# =================================================================
+compile-options:
+  build-debug: true
+
+# =================================================================
+# External C++ Libraries
+# =================================================================
+library-cpp:
+  toolchain: false
+  utility: true
+  opencv: ""
+  opencv-contrib: false
+  eigen: ""
+  pcl: ""
+  ceres: ""
+  gtsam: ""
+
+# =================================================================
+# External Python Libraries
+# =================================================================
+library-python:
+  python3: false
+  open3d: false
+  opencv-python: false
+  opencv-contrib-python: false
