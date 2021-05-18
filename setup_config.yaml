@@ -8,20 +8,20 @@ compile-options:
 # External C++ Libraries
 # =================================================================
 library-cpp:
-  toolchain: false
+  toolchain: true
   utility: true
-  opencv: ""
-  opencv-contrib: false
-  eigen: ""
-  pcl: ""
-  ceres: ""
-  gtsam: ""
+  opencv: "4.5.2"
+  opencv-contrib: true
+  eigen: "3.3.9"
+  pcl: "1.11.1"
+  ceres: "2.0.0"
+  gtsam: "4.0.3"
 
 # =================================================================
 # External Python Libraries
 # =================================================================
 library-python:
-  python3: false
+  python3: true
   open3d: false
   opencv-python: false
   opencv-contrib-python: false
