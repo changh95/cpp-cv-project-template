@@ -65,11 +65,13 @@ def main():
 
     args = parser.parse_args()
 
-    if len(sys.argv) == 1:
+    config_file_path = "./setup_config.yaml"
+
+    if not os.path.isfile(config_file_path):
         parser.print_help()
         return
 
-    cfg = YAMLparser("./setup_config.yaml")
+    cfg = YAMLparser(config_file_path)
 
     status_str = "Setup complete!: "
 
