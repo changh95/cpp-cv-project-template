@@ -114,7 +114,7 @@ def main():
             installer = install_eigen(cfg.build_debug, "3.3.9", pw)
             installer.run()
 
-        installer = install_pcl(cfg.d, cfg.pcl, pw)
+        installer = install_pcl(cfg.build_debug, cfg.pcl, pw)
         installer.run()
         status_str += "--pcl, "
 
