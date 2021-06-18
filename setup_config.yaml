@@ -16,6 +16,7 @@ library-cpp:
   pcl: "1.11.1"
   ceres: "2.0.0"
   gtsam: "4.0.3"
+  pangolin: "0.6"
 
 # =================================================================
 # External Python Libraries
