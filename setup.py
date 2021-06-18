@@ -11,6 +11,7 @@ from scripts.third_party_clone.ceres.install_ceres_solver import install_ceres_s
 from scripts.third_party_clone.gtsam.install_gtsam import install_gtsam
 from scripts.third_party_clone.pcl.install_pcl import install_pcl
 from scripts.third_party_clone.pangolin.install_pangolin import install_pangolin
+from scripts.third_party_clone.glfw.install_glfw import install_glfw
 
 class Password:
     def __init__(self):
@@ -52,6 +53,7 @@ class YAMLparser:
                 self.ceres = line["ceres"]
                 self.gtsam = line["gtsam"]
                 self.pangolin = line["pangolin"]
+                self.glfw = line["glfw"]
 
             if key_L1 == "library-python":
                 self.python3 = line["python3"]
@@ -138,6 +140,11 @@ def main():
         installer = install_pangolin(cfg.build_debug, cfg.pangolin, pw)
         installer.run()
         status_str += "--pangolin, "
+
+    if cfg.glfw != "":
+        installer = install_glfw(cfg.build_debug, cfg.glfw, pw)
+        installer.run()
+        status_str += "--glfw, "
 
     if cfg.python3 or cfg.open3d or cfg.opencv_python:
         pw.redeem()
