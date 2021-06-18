@@ -19,6 +19,7 @@ This repo contains a C++ project template for developing computer vision applica
       - Non-free algorithms enabled
    - Ceres-solver (:heavy_check_mark:)
    - GTSAM (:heavy_check_mark:)
+   - Pangolin (:heavy_check_mark:)
    - PCL (:heavy_check_mark:)
       - Visualization disabled
    - OpenGL (:heavy_multiplication_x:)
