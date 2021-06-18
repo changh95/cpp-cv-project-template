@@ -1,4 +1,5 @@
 #include <iostream>
+#include <pangolin/config.h>
 
 #ifdef EIGEN_DEVELOP
 #include <Eigen/Dense>
@@ -28,6 +29,10 @@
 #include <spdlog/version.h>
 #endif
 
+#ifdef PANGOLIN_DEVELOP
+#include <pangolin/pangolin.h>
+#endif
+
 int main()
 {
     std::cout << "Hello World!" << std::endl;
@@ -50,6 +55,10 @@ int main()
 
 #ifdef GTSAM_DEVELOP
     std::cout << "GTSAM Version: " << GTSAM_VERSION_STRING << std::endl;
+#endif
+
+#ifdef PANGOLIN_DEVELOP
+    std::cout << "Pangolin Version: " << PANGOLIN_VERSION_STRING << std::endl;
 #endif
 
 #ifdef SPDLOG_DEVELOP

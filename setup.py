@@ -10,6 +10,7 @@ from scripts.third_party_clone.eigen.install_eigen import install_eigen
 from scripts.third_party_clone.ceres.install_ceres_solver import install_ceres_solver
 from scripts.third_party_clone.gtsam.install_gtsam import install_gtsam
 from scripts.third_party_clone.pcl.install_pcl import install_pcl
+from scripts.third_party_clone.pangolin.install_pangolin import install_pangolin
 
 class Password:
     def __init__(self):
@@ -50,6 +51,7 @@ class YAMLparser:
                 self.pcl = line["pcl"]
                 self.ceres = line["ceres"]
                 self.gtsam = line["gtsam"]
+                self.pangolin = line["pangolin"]
 
             if key_L1 == "library-python":
                 self.python3 = line["python3"]
@@ -131,6 +133,11 @@ def main():
         installer = install_gtsam(cfg.build_debug, cfg.gtsam, pw)
         installer.run()
         status_str += "--gtsam, "
+
+    if cfg.pangolin != "":
+        installer = install_pangolin(cfg.build_debug, cfg.pangolin, pw)
+        installer.run()
+        status_str += "--pangolin, "
 
     if cfg.python3 or cfg.open3d or cfg.opencv_python:
         pw.redeem()
