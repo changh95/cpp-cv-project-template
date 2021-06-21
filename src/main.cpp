@@ -1,5 +1,4 @@
 #include <iostream>
-#include <pangolin/config.h>
 
 #ifdef EIGEN_DEVELOP
 #include <Eigen/Dense>
@@ -33,6 +32,10 @@
 #include <pangolin/pangolin.h>
 #endif
 
+#ifdef GLFW_DEVELOP
+#include <GLFW/glfw3.h>
+#endif
+
 int main()
 {
     std::cout << "Hello World!" << std::endl;
@@ -59,6 +62,10 @@ int main()
 
 #ifdef PANGOLIN_DEVELOP
     std::cout << "Pangolin Version: " << PANGOLIN_VERSION_STRING << std::endl;
+#endif
+
+#ifdef GLFW_DEVELOP
+    std::cout << "GLFW Version: " << GLFW_VERSION_MAJOR << "." << GLFW_VERSION_MINOR << "." << GLFW_VERSION_REVISION << std::endl;
 #endif
 
 #ifdef SPDLOG_DEVELOP

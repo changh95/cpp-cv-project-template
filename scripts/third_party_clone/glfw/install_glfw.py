@@ -12,6 +12,9 @@ class install_glfw:
     def run(self):
         self.pw.redeem()
 
+        # Install dependency - pkg-config, libxrandr-dev, libxinerama-dev, libxcursor-dev libxi-dev
+        os.system("sudo apt install pkg-config libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev")
+
         # Remove any pre-installed GLFW
         os.system("sudo rm -rf ./third_party/glfw")
 
