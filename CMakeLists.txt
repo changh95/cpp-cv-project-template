@@ -21,6 +21,7 @@ include(eigen)
 include(ceres)
 include(gtsam)
 include(pangolin)
+include(glad)
 include(glfw)
 include(utils)
 #include(...)
@@ -68,5 +69,7 @@ target_link_libraries(
 	${GTSAM_LIBS}
 	${SPDLOG_LIBS}
 	${PANGOLIN_LIBS}
+	OpenGL::GL
 	${GLFW_LIBS}
+	glad
 )

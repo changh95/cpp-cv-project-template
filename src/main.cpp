@@ -33,6 +33,9 @@
 #endif
 
 #ifdef GLFW_DEVELOP
+#ifndef PANGOLIN_DEVELOP
+#include <glad/glad.h>
+#endif
 #include <GLFW/glfw3.h>
 #endif
 

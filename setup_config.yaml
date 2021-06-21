@@ -19,6 +19,7 @@ library-cpp:
   gtsam: "4.0.3"
   pangolin: "0.6"
   glfw: "3.3.4"
+  glad: true
 
 # =================================================================
 # External Python Libraries
