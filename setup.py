@@ -12,6 +12,7 @@ from scripts.third_party_clone.gtsam.install_gtsam import install_gtsam
 from scripts.third_party_clone.pcl.install_pcl import install_pcl
 from scripts.third_party_clone.pangolin.install_pangolin import install_pangolin
 from scripts.third_party_clone.glfw.install_glfw import install_glfw
+from scripts.third_party_clone.glad.install_glad import install_glad
 
 class Password:
     def __init__(self):
@@ -54,6 +55,7 @@ class YAMLparser:
                 self.gtsam = line["gtsam"]
                 self.pangolin = line["pangolin"]
                 self.glfw = line["glfw"]
+                self.glad = line["glad"]
 
             if key_L1 == "library-python":
                 self.python3 = line["python3"]
@@ -140,6 +142,11 @@ def main():
         installer = install_pangolin(cfg.build_debug, cfg.pangolin, pw)
         installer.run()
         status_str += "--pangolin, "
+
+    if cfg.glad != "":
+        installer = install_glad(cfg.build_debug, cfg.glad, pw)
+        installer.run()
+        status_str += "--glad, "
 
     if cfg.glfw != "":
         installer = install_glfw(cfg.build_debug, cfg.glfw, pw)
