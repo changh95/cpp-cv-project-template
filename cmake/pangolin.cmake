@@ -9,6 +9,8 @@ if (${Pangolin_FOUND})
         ${PANGOLIN_INCLUDE_DIRS}
     )
 
+    set(PANGOLIN_LIBS ${Pangolin_LIBRARIES})
+
 else (${Pangolin_FOUND})
 	message(STATUS "Could not support Pangolin")
 endif (${Pangolin_FOUND})
