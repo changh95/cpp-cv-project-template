@@ -13,7 +13,7 @@ include(InstallRequiredSystemLibraries)
 include(CMakePackageConfigHelpers)
 
 # Custom modules and scripts
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DOR}/cmake")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(opencv)
 include(pcl)
