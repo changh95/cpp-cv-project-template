@@ -16,7 +16,7 @@ cd cpp-cv-project-template &&\
 git clone https://github.com/changh95/cpp-cv-project-template.git . &&\
 git remote update &&\
 git fetch --all &&\
-git checkout ${BRANCH}} &&\
+git checkout ${BRANCH} &&\
 git pull &&\
 git branch &&\
 ./setup.py
