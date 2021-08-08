@@ -10,7 +10,7 @@ on:
 
 env:
   GET_REPO: export REPO=${GITHUB_REPOSITORY#*/}
-  GET_HASH: export HAS${GITHUB_SHA}
+  GET_HASH: export HASH${GITHUB_SHA}
 
 jobs:
   build:
