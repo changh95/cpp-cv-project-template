@@ -20,23 +20,23 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build Docker image
         run: |
-        eval $GET_REPO
-        eval $GET_HASH
-        echo "=== Build start==="
+         eval $GET_REPO
+         eval $GET_HASH
+         echo "=== Build start==="
         
-        echo ${HASH}
-        echo ${REPO}
-        echo ${{ github.head_ref }}
+         echo ${HASH}
+         echo ${REPO}
+         echo ${{ github.head_ref }}
         
-        cd Dockerfiles
-        docker build --force-rm --no-cache -f Dockerfile -t "${REPO}:${HASH}" --build-arg BRANCH=${{ github.head_ref }} .
-        echo "=== Build finished==="
+         cd Dockerfiles
+         docker build --force-rm --no-cache -f Dockerfile -t "${REPO}:${HASH}" --build-arg BRANCH=${{ github.head_ref }} .
+         echo "=== Build finished==="
 
       - name: Clean up Docker image if build fails
         if: failure()
         run: |
-        echo "=== Remove failed image start==="
-        docker rmi -f $(docker images f "dangling=true" -q)
-        docker images 
-        echo "=== Removal finished==="
+         echo "=== Remove failed image start==="
+         docker rmi -f $(docker images f "dangling=true" -q)
+         docker images 
+         echo "=== Removal finished==="
         
