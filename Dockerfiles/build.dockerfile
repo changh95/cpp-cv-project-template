@@ -11,7 +11,8 @@ apt-get -y install python3 python3-pip &&\
 pip3 install pyaml &&\
 apt-get autoclean
 
-RUN mkdir cv-project &&\
+RUN mkdir cpp-cv-project-template &&\
+cd cpp-cv-project-template &&\
 git clone https://github.com/changh95/cpp-cv-project-template.git . &&\
 git remote udpate &&\
 git fetch --all &&\
