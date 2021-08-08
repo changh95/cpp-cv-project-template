@@ -14,7 +14,7 @@ apt-get autoclean
 RUN mkdir cpp-cv-project-template &&\
 cd cpp-cv-project-template &&\
 git clone https://github.com/changh95/cpp-cv-project-template.git . &&\
-git remote udpate &&\
+git remote update &&\
 git fetch --all &&\
 git checkout ${BRANCH}} &&\
 git pull &&\
