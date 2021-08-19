@@ -49,7 +49,7 @@ class install_ceres_solver:
         num_cpu_cores = multiprocessing.cpu_count()
         os.system("make -j" + str(num_cpu_cores-1))
         self.pw.redeem()
-        os.system("make test")
+        # os.system("make test")
         self.pw.redeem()
         os.system("sudo make install")
 

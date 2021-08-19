@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches:
+    - main
+    - develop
+  pull_request:
+    branches: [develop]
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Docker image
+        run: |
+         echo "=== Build start==="
+         echo ${{ github.head_ref }}
+        
+         cd Dockerfiles
+         docker build --force-rm --no-cache -f build.dockerfile -t "cpp-cv-project-template:base" --build-arg BRANCH=${{ github.head_ref }} . 
+         echo "=== Build finished==="
+         
+      - name: Clean up Docker image if build fails
+        if: failure()
+        run: |
+         echo "=== Remove failed image start==="
+         docker rmi -f $(docker images -f "dangling=true" -q)
+         docker images 
+         echo "=== Removal finished==="
