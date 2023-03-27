@@ -30,7 +30,7 @@ jobs:
          echo ${REPO}
          echo ${{ github.head_ref }}
         
-         cd Dockerfiles
+         cd docker
          docker build --force-rm --no-cache --tag "ccpt:${HASH}" --build-arg BRANCH=${{ github.head_ref }} .
          echo "=== Build finished==="
 
