@@ -1,5 +1,7 @@
 ![title](./resource/project_title.png)
 
+> "It's never been easier than this!"
+
 ## Purpose :fire:
 
 This repo contains a C++ project template for developing computer vision applications.
@@ -17,12 +19,15 @@ This repo contains a C++ project template for developing computer vision applica
       - Non-free algorithms enabled
    - Ceres-solver (:heavy_check_mark:)
    - GTSAM (:heavy_check_mark:)
+   - Pangolin (:heavy_check_mark:)
    - PCL (:heavy_check_mark:)
       - Visualization disabled
    - OpenGL (:heavy_multiplication_x:)
+- The project supports various tools to make good C++ project practices.
    - GTest (:heavy_multiplication_x:)
    - spdlog (:heavy_check_mark:)
    - fast-cpp-csv-parser (:heavy_check_mark:)
+   - nlohmann-json (:heavy_check_mark:)
 
 Status legend:
 :heavy_check_mark: - Fully supported, 
@@ -39,12 +44,15 @@ Status legend:
 # Install Python 3
 sudo apt install python3
 
-# Project setup - Install dependencies
-chmod u+x setup.py
-./setup.py --toolchain --utils --opencv 4.5.1 --opencv_contrib --eigen 3.3.9 --pcl 1.11.1 --ceres 2.0.0 --gtsam 4.0.3 --python3 --open3d
+# Edit `setup_config.yaml` to configure project
+gedit setup_config.yaml
 
+# Install dependencies
+chmod u+x setup.py
+./setup.py
 ```
 
+- Edit the [setup_config.yaml](./setup_config.yaml) file to configure your project dependencies.
 - You can also use the optional `--password` argument to avoid manually typing your Linux password for every internal sudo command usage.
 
 ### Windows
