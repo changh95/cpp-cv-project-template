@@ -7,6 +7,12 @@ Makefile
 .vscode**
 
 python_venv/**
+.idea/**
+.venv/**
 
-third_party/**
+thirdparty/**
+!thirdparty/packages.yaml
+!thirdparty/install_evo.sh
+!thirdparty/create_venv.sh
 *.pyc
+

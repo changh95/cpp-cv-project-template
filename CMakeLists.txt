@@ -20,6 +20,7 @@ include(pcl)
 include(eigen)
 include(ceres)
 include(gtsam)
+include(pangolin)
 include(utils)
 #include(...)
 
@@ -67,4 +68,5 @@ target_link_libraries(
 	${CERES_LIBS}
 	${GTSAM_LIBS}
 	${SPDLOG_LIBS}
+	${Pangolin_LIBRARIES}
 )

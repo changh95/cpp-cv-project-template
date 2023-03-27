@@ -10,14 +10,16 @@ on:
 
 env:
   GET_REPO: export REPO=${GITHUB_REPOSITORY#*/}
-  GET_HASH: export HASH${GITHUB_SHA}
+  GET_HASH: export HASH=${GITHUB_SHA}
 
 jobs:
-  build:
+  CI:
+    name: CI
     runs-on: self-hosted
-
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout source code
+        uses: actions/checkout@v2
+
       - name: Build Docker image
         run: |
          eval $GET_REPO
@@ -28,8 +30,8 @@ jobs:
          echo ${REPO}
          echo ${{ github.head_ref }}
         
-         cd Dockerfiles
-         docker build --force-rm --no-cache -f Dockerfile -t "${REPO}:${HASH}" --build-arg BRANCH=${{ github.head_ref }} .
+         cd docker
+         docker build --force-rm --no-cache --tag "ccpt:${HASH}" --build-arg BRANCH=${{ github.head_ref }} .
          echo "=== Build finished==="
 
       - name: Clean up Docker image if build fails
@@ -39,4 +41,3 @@ jobs:
          docker rmi -f $(docker images -f "dangling=true" -q)
          docker images 
          echo "=== Removal finished==="
-        
