@@ -13,11 +13,13 @@ env:
   GET_HASH: export HASH=${GITHUB_SHA}
 
 jobs:
-  build:
+  CI:
+    name: CI
     runs-on: self-hosted
-
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout source code
+        uses: actions/checkout@v2
+
       - name: Build Docker image
         run: |
          eval $GET_REPO
