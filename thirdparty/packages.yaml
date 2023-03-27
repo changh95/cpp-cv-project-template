@@ -39,14 +39,14 @@ build_packages:
       debug:
         - " -DBUILD_TESTING=OFF"
       release:
-        - "-DCMAKE_CXX_FLAGS=\"-Ofast\" -DBUILD_TESTING=OFF"
+        - "-DCMAKE_CXX_FLAGS=\"-Ofast\""
   PCL:
     version_num: 1.13.0
     cmake_flags:
       debug:
         - " -DBUILD_TESTING=OFF"
       release:
-        - "-DCMAKE_CXX_FLAGS=\"-Ofast\" -DBUILD_TESTING=OFF"
+        - "-DCMAKE_CXX_FLAGS=\"-Ofast\""
   Pangolin:
     version_num: 0.8
     cmake_flags:
