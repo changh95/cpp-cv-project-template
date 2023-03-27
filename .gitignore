@@ -7,6 +7,9 @@ Makefile
 .vscode**
 
 python_venv/**
+.idea/**
+.venv/**
 
-third_party/**
+thirdparty/**
 *.pyc
+
