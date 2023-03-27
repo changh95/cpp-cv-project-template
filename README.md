@@ -8,6 +8,8 @@ This repo contains a C++ project template for developing computer vision applica
 
 ## Features :star2:
 
+> Currently, this repo is going under a rigorous change! Stay tuned for a big update!
+
 - The project comprise a widely-used C++ project structure.
 - The project supports installing essential toolchains for C++ programming and debugging.
    - git, build-essentials, cppcheck, cmake, clang, gcc, clang-tools, clang-tidy, lldb, lld, libc++, libomp (:heavy_check_mark:)
