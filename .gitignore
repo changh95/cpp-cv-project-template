@@ -8,5 +8,5 @@ Makefile
 
 python_venv/**
 
-third_party/**
+thirdparty/**
 *.pyc
