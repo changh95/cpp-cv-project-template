@@ -17,8 +17,8 @@ RUN apt-get install -y \
 RUN pip3 install gitpython pyyaml
 
 # Build and install
-RUN git clone https://github.com/changh95/cpp-cv-project-tempslate.git && \
-    cd cpp-cv-project-template && \
+RUN git clone https://github.com/changh95/cpp-cv-project-tempslate.git
+RUN cd cpp-cv-project-template && \
     git checkout refactor/big_change
 RUN python3 ./build_dependencies --d
 #RUN git clone https://github.com/colmap/colmap.git
