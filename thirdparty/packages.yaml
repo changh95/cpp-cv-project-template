@@ -1,0 +1,73 @@
+apt_packages:
+  yaml-cpp: true
+  doxygen: true
+  PNG: true
+  TIFF: true
+  JPEG: true
+  ZLIB: true
+  GLUT: true
+  GLEW: true
+  GLFW: true
+  GLM: true
+  JSON: true
+  glog: true
+  gflags: true
+build_packages:
+  Eigen3: 
+    version_num: 3.4.0
+    cmake_flags:
+      debug : ""
+      release :
+        - "-DCMAKE_CXX_FLAGS=\"-Ofast\""
+  OpenCV: 
+    version_num: 4.7.0
+    cmake_flags:
+      debug:
+        - " -DWITH_EIGEN=OFF"
+      release:
+        - "-DCMAKE_CXX_FLAGS=\"-Ofast\" -DWITH_EIGEN=OFF"
+  Ceres: 
+    version_num: 2.1.0
+    cmake_flags: 
+      debug: 
+        - " -DBUILD_TESTING=OFF"
+      release:
+        - "-DCMAKE_CXX_FLAGS=\"-Ofast\" -DBUILD_TESTING=OFF"
+  GTSAM:
+    version_num: 4.1.1
+    cmake_flags:
+      debug:
+        - " -DBUILD_TESTING=OFF"
+      release:
+        - "-DCMAKE_CXX_FLAGS=\"-Ofast\" -DBUILD_TESTING=OFF"
+  PCL:
+    version_num: 1.13.0
+    cmake_flags:
+      debug:
+        - " -DBUILD_TESTING=OFF"
+      release:
+        - "-DCMAKE_CXX_FLAGS=\"-Ofast\" -DBUILD_TESTING=OFF"
+  Pangolin:
+    version_num: 0.8
+    cmake_flags:
+      debug :
+        - "-DCMAKE_CXX_FLAGS=\"-w\""
+      release :
+        - "-DCMAKE_CXX_FLAGS=\"-w\""
+  GTest: 
+    version_num: 1.11.0
+    cmake_flags:
+      debug: ""
+      release: ""
+  easy-profiler: 
+    version_num: 2.1.0
+    cmake_flags:
+      debug: ""
+      release: ""
+  spdlog: 
+    version_num: 1.9.2
+    cmake_flags:
+      debug: ""
+      release: ""
+python3:
+  EVO: 1.15.0

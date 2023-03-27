@@ -202,9 +202,9 @@ def install_build_packages(enable_debug):
     if cfg.ceres != "":
         install_ceres(cfg.ceres, enable_debug)
     if cfg.gtsam != "":
-         install_gtsam(cfg.gtsam, enable_debug)
+        install_gtsam(cfg.gtsam, enable_debug)
     if cfg.pcl != "":
-         install_pcl(cfg.pcl, enable_debug)
+        install_pcl(cfg.pcl, enable_debug)
 
 
 def install_spdlog(cfg, enable_debug):

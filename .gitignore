@@ -11,5 +11,8 @@ python_venv/**
 .venv/**
 
 thirdparty/**
+!thirdparty/packages.yaml
+!thirdparty/install_evo.sh
+!thirdparty/create_venv.sh
 *.pyc
 
