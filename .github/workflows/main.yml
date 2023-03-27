@@ -10,7 +10,7 @@ on:
 
 env:
   GET_REPO: export REPO=${GITHUB_REPOSITORY#*/}
-  GET_HASH: export HASH${GITHUB_SHA}
+  GET_HASH: export HASH=${GITHUB_SHA}
 
 jobs:
   build:
@@ -29,7 +29,7 @@ jobs:
          echo ${{ github.head_ref }}
         
          cd Dockerfiles
-         docker build --force-rm --no-cache -f Dockerfile -t "ccpt:${HASH}" --build-arg BRANCH=${{ github.head_ref }} .
+         docker build --force-rm --no-cache --file Dockerfile --tag "ccpt:${HASH}" --build-arg BRANCH=${{ github.head_ref }} .
          echo "=== Build finished==="
 
       - name: Clean up Docker image if build fails
