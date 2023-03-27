@@ -8,6 +8,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Prepare and empty machine for building.
 RUN apt-get update
 RUN apt-get install -y \
+    sudo \
     git \
     cmake \
     ninja-build \
@@ -22,7 +23,7 @@ RUN cd cpp-cv-project-template &&  \
     git remote update &&  \
     git remote prune origin &&  \
     git checkout feat/big_change && \
-    python3 ./build_dependencies.py --d
+    ./build_dependencies.py --d
 #RUN git clone https://github.com/colmap/colmap.git
 #RUN cd colmap && \
 #    git reset --hard ${COLMAP_VERSION} && \
