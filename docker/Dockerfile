@@ -18,8 +18,11 @@ RUN pip3 install gitpython pyyaml
 
 # Build and install
 RUN git clone https://github.com/changh95/cpp-cv-project-template.git
-RUN cd cpp-cv-project-template && git remote update && git remote prune origin && git checkout feat/big_change
-RUN python3 ./build_dependencies --d
+RUN cd cpp-cv-project-template &&  \
+    git remote update &&  \
+    git remote prune origin &&  \
+    git checkout feat/big_change && \
+    python3 ./build_dependencies --d
 #RUN git clone https://github.com/colmap/colmap.git
 #RUN cd colmap && \
 #    git reset --hard ${COLMAP_VERSION} && \
