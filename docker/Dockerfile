@@ -3,6 +3,7 @@ FROM ubuntu:jammy
 # ARG CUDA_ARCHITECTURES=native
 
 # Prevent stop building ubuntu at time zone selection.
+ARG BRANCH=develop
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Prepare and empty machine for building.
@@ -22,14 +23,5 @@ RUN git clone https://github.com/changh95/cpp-cv-project-template.git
 RUN cd cpp-cv-project-template &&  \
     git remote update &&  \
     git remote prune origin &&  \
-    git checkout feat/big_change && \
+    git checkout ${BRANCH} && \
     ./build_dependencies.py --d
-#RUN git clone https://github.com/colmap/colmap.git
-#RUN cd colmap && \
-#    git reset --hard ${COLMAP_VERSION} && \
-#    mkdir build && \
-#    cd build && \
-#    cmake .. -GNinja -DCMAKE_CUDA_ARCHITECTURES=${CUDA_ARCHITECTURES} && \
-#    ninja && \
-#    ninja install && \
-#    cd .. && rm -rf colmap

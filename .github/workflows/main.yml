@@ -29,7 +29,7 @@ jobs:
          echo ${{ github.head_ref }}
         
          cd Dockerfiles
-         docker build --force-rm --no-cache -f Dockerfile -t "${REPO}:${HASH}" --build-arg BRANCH=${{ github.head_ref }} .
+         docker build --force-rm --no-cache -f Dockerfile -t "ccpt:${HASH}" --build-arg BRANCH=${{ github.head_ref }} .
          echo "=== Build finished==="
 
       - name: Clean up Docker image if build fails
