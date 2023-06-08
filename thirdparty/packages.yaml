@@ -12,6 +12,7 @@ apt_packages:
   JSON: true
   glog: true
   gflags: true
+  boost: false
 build_packages:
   Eigen3: 
     version_num: 3.4.0

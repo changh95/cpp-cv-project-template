@@ -9,6 +9,7 @@ Makefile
 python_venv/**
 .idea/**
 .venv/**
+__pycache__
 
 thirdparty/**
 !thirdparty/packages.yaml
