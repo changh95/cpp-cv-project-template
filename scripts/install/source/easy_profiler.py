@@ -57,13 +57,13 @@ def install_easy_profiler_linux(
     """Build easy_profiler on Linux (Release mode only - since most of the time only the fast loggers are desired)
 
     Args:
-        cfg (dict): _description_
-        base_path (str): _description_
-        install_in_system (bool): _description_
-        os_name (str): _description_
-        nproc (int): _description_
-        password (Password): _description_
-        enable_debug (bool): _description_
+        cfg (dict): Config object for building Easy-profiler
+        base_path (str): Base path of the project
+        install_in_system (bool): Boolean flag to install Easy-profiler in system (/usr/local) or in the project directory
+        os_name (str): Name of the OS
+        nproc (str): Number of processors
+        password (Password): Password object to get sudo password
+        enable_debug (bool): Boolean flag to enable debug mode
     """
 
     os.chdir(base_path)

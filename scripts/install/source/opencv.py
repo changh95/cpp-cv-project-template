@@ -57,13 +57,13 @@ def install_opencv_linux(
     """Build opencv on Linux
 
     Args:
-        cfg (dict): _description_
-        base_path (str): _description_
-        install_in_system (bool): _description_
-        os_name (str): _description_
-        nproc (str): _description_
-        password (Password): _description_
-        enable_debug (bool): _description_
+        cfg (dict): Config object for building OpenCV
+        base_path (str): Base path of the project
+        install_in_system (bool): Boolean flag to install OpenCV in system (/usr/local) or in the project directory
+        os_name (str): Name of the OS
+        nproc (str): Number of processors
+        password (Password): Password object to get sudo password
+        enable_debug (bool): Boolean flag to enable debug mode
     """
 
     # TODO: Check if we need contrib?
