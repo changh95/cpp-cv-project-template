@@ -1,5 +1,4 @@
 #!/bin/bash
-# install_evo.sh is assumed to be called in path: .../svslam 
 
 function log { echo -e "\033[0;32m[$BASH_SOURCE] $1\033[0m"; }
 function echo_and_run { echo -e "\033[0;35m\$ $@\033[0m"; "$@"; }
