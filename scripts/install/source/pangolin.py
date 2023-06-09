@@ -61,7 +61,7 @@ def install_pangolin_linux(
         base_path (str): _description_
         install_in_system (bool): _description_
         os_name (str): _description_
-        nproc (int): _description_
+        nproc (str): _description_
         password (Password): _description_
         enable_debug (bool): _description_
     """
@@ -116,7 +116,7 @@ def install_pangolin_linux(
                     exec_string + " -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../../install/Release -DCMAKE_PREFIX_PATH=" + eigen3_path + " " + release_build_flags) != 0:
                 raise Exception("Pangolin: cmake configuration failed")
 
-        if os.system("ninja " + nproc) != 0:
+        if os.system("ninja" + nproc) != 0:
             raise Exception("Pangolin: ninja failed")
 
         if os.system(password.sudo() + "ninja install") != 0:
@@ -137,7 +137,7 @@ def install_pangolin_linux(
                         exec_string + " -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../../install/Debug -DCMAKE_PREFIX_PATH=" + eigen3_path + " " + debug_build_flags) != 0:
                     raise Exception("Pangolin: cmake configuration failed")
 
-                if os.system("ninja " + nproc) != 0:
+                if os.system("ninja" + nproc) != 0:
                     raise Exception("Pangolin: ninja failed")
 
                 if os.system(password.sudo() + "ninja install") != 0:

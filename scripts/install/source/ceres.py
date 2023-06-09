@@ -61,7 +61,7 @@ def install_ceres_linux(
         base_path (str): _description_
         install_in_system (bool): _description_
         os_name (str): _description_
-        nproc (int): _description_
+        nproc (str): _description_
         password (Password): _description_
         enable_debug (bool): _description_
     """
@@ -117,7 +117,7 @@ def install_ceres_linux(
                     exec_string + " -DEigen3_DIR=" + eigen3_path + " -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../../install/Release " + release_build_flags) != 0:
                 raise Exception("Ceres-solver: cmake configuration failed")
 
-        if os.system("ninja " + nproc) != 0:
+        if os.system("ninja" + nproc) != 0:
             raise Exception("Ceres-solver: ninja failed")
 
         # if os.system("ninja test") != 0:
@@ -141,7 +141,7 @@ def install_ceres_linux(
                         exec_string + " -DEigen3_DIR=" + eigen3_path + " -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../../install/Debug " + debug_build_flags) != 0:
                     raise Exception("Ceres-solver: cmake configuration failed")
 
-            if os.system("ninja " + nproc) != 0:
+            if os.system("ninja" + nproc) != 0:
                 raise Exception("Ceres-solver: ninja failed")
 
             # if os.system("ninja test") != 0:

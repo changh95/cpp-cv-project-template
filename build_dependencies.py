@@ -55,9 +55,8 @@ def main():
         cfg.basic_config.install_in_system = True
     if args.d:
         cfg.basic_config.d = True
-    cfg.basic_config.nproc = args.j
-    if args.j == 0:
-        cfg.basic_config.nproc = "all"    
+    if args.j != 0:
+        cfg.basic_config.nproc = " -j" + str(args.j)
 
     install.install_apt_essential(cfg)
     install.install_apt_optional(cfg)
