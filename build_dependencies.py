@@ -58,10 +58,9 @@ def main():
     if args.j != 0:
         cfg.basic_config.nproc = " -j" + str(args.j)
 
-    install.install_apt_essential(cfg)
-    install.install_apt_optional(cfg)
-    install_libraries_from_source(cfg)
-    # install_python_packages()
+    #install_apt_packages(cfg)
+    #install_libraries_from_source(cfg)
+    install_python_packages(cfg)
 
 
 class Password:
@@ -155,6 +154,11 @@ class Config:
                 self.evo = line.get("EVO", "")
 
 
+def install_apt_packages(cfg):
+    install.install_apt_essential(cfg)
+    install.install_apt_optional(cfg)
+
+
 def install_libraries_from_source(cfg):
     if cfg.spdlog != "":
         install.build_and_install_spdlog(cfg.spdlog, cfg.basic_config)
@@ -175,46 +179,11 @@ def install_libraries_from_source(cfg):
     if cfg.pcl != "":
        install.build_and_install_pcl(cfg.pcl, cfg.basic_config)
 
-def install_python_packages():
-    os.chdir(pwd)
-
-    # Install virtual environment
-    os.system(pw.sudo() + "apt-get -y install python3-venv")
-
-    # Installs easydict, numpy, scipy in a virtual environment (.venv)
-    os.system("chmod u+x ./thirdparty/create_venv.sh")
-    os.system("./thirdparty/create_venv.sh")
-
+def install_python_packages(cfg):
+    install.create_venv(cfg)
+    
     if cfg.evo != "":
-        install_evo(cfg.evo)
-
-
-def install_evo(version_num):
-    os.chdir(pwd)
-
-    # install EVO for map evaluation
-    try:
-        os.system(pw.sudo() + "rm -rf ./thirdparty/evo")
-        os.chdir("./thirdparty")
-
-        try:
-            urllib.request.urlretrieve(
-                "https://github.com/MichaelGrupp/evo/archive/refs/tags/v" + version_num + ".zip",
-                "./evo.zip")
-        except urllib.error.HTTPError as e:
-            raise Exception("EVO: cloning failed")
-
-        os.system("unzip ./evo.zip -d .")
-        os.rename("evo-" + version_num, "evo")
-        os.system(pw.sudo() + "rm -rf ./evo.zip")
-
-    except Exception as e:
-        print("")
-        sys.exit(e)
-
-    os.chdir(pwd)
-    os.system("chmod u+x ./thirdparty/install_evo.sh")
-    os.system("./thirdparty/install_evo.sh")
+        install.install_evo(cfg)
 
 
 if __name__ == "__main__":
