@@ -1,4 +1,4 @@
-opencv-python==4.5.1.48
+opencv-python==4.5.1.48 # opencv-python-contrib
 addict==2.4.0
 argon2-cffi==20.1.0
 async-generator==1.10
@@ -10,6 +10,9 @@ cycler==0.10.0
 decorator==5.0.3
 defusedxml==0.7.1
 entrypoints==0.3
+geopandas
+gtsam
+ipdb
 ipykernel==5.5.3
 ipython==7.22.0
 ipython-genutils==0.2.0
@@ -36,6 +39,7 @@ packaging==20.9
 pandas==1.2.3
 pandocfilters==1.4.3
 parso==0.8.2
+# pclpy
 pexpect==4.8.0
 pickleshare==0.7.5
 Pillow==8.2.0
@@ -51,13 +55,20 @@ python-dateutil==2.8.1
 pytz==2021.1
 PyYAML==5.4.1
 pyzmq==22.0.3
+robotdatapy
+rtree
+scikit-image
 scikit-learn==0.24.1
 scipy==1.6.2
 Send2Trash==1.5.0
+shapely
 six==1.15.0
 sklearn==0.0
+# symforce
+sympy
 terminado==0.9.4
 testpath==0.4.4
+transforms3d
 threadpoolctl==2.1.0
 tornado==6.1
 tqdm==4.59.0
