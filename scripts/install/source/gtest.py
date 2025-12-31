@@ -93,7 +93,7 @@ def install_gtest_linux(
         except urllib.error.HTTPError as e:
             raise Exception("GTest: cloning failed")
 
-        os.system("unzip ./gtest.zip -d .")
+        os.system("unzip -q ./gtest.zip -d .")
 
         os.makedirs("./build/Release", exist_ok=True)
         os.makedirs("./install/Release", exist_ok=True)

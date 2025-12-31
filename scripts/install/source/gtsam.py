@@ -94,7 +94,7 @@ def install_gtsam_linux(
         except urllib.error.HTTPError as e:
             raise Exception("GTSAM: cloning failed")
 
-        os.system("unzip ./gtsam.zip -d .")
+        os.system("unzip -q ./gtsam.zip -d .")
 
         os.makedirs("./build/Release")
         os.makedirs("./install/Release")

@@ -97,7 +97,7 @@ def install_pcl_linux(
         except urllib.error.HTTPError as e:
             raise Exception("PCL: cloning failed")
 
-        os.system("unzip ./pcl.zip -d .")
+        os.system("unzip -q ./pcl.zip -d .")
 
         os.makedirs("./build/Release")
         os.makedirs("./install/Release")
@@ -144,7 +144,7 @@ def install_pcl_linux(
 
         os.chdir("../../")
         os.system(password.sudo() + "rm -rf ./build")
-        os.system(password.sudo() + "rm -rf pcl-" + version_num)
+        os.system(password.sudo() + "rm -rf pcl-pcl-" + version_num)
     except Exception as e:
         print("")
         sys.exit(e)

@@ -96,7 +96,7 @@ def install_spdlog_linux(
         except urllib.error.HTTPError as e:
             raise Exception("spdlog: cloning failed")
 
-        if os.system("unzip ./spdlog.zip -d .") != 0:
+        if os.system("unzip -q ./spdlog.zip -d .") != 0:
             raise Exception
 
         os.makedirs("./build/Release", exist_ok=True)

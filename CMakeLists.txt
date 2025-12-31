@@ -15,25 +15,24 @@ include(CMakePackageConfigHelpers)
 # Custom modules and scripts
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-include(opencv)
-include(pcl)
-include(eigen)
-include(ceres)
-include(gtsam)
-include(pangolin)
-include(utils)
-#include(...)
+include(find_eigen3)
+include(find_opencv)
+include(find_ceres)
+include(find_pcl)
+include(find_gtsam)
+include(find_spdlog)
+include(find_pangolin)
 
-set(CMAKE_CXX_STANDARD 17)
+message("Generated with build type: ${CMAKE_BUILD_TYPE}, config types: ${CMAKE_CONFIGURATION_TYPES}")
 message(STATUS "-std=C++17")
-
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "-Wall -Wextra")
 set(CMAKE_CXX_FLAGS "-O0")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 message(STATUS "-Wall -Wextra -O0")
 
-# 3rdParty dependencies
-#add_subdirectory(third_party EXCLUDE_FROM_ALL)
+# 3rd party dependencies
+# add_subdirectory(thirdparty EXCLUDE_FROM_ALL)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 

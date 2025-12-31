@@ -58,8 +58,8 @@ def main():
     if args.j != 0:
         cfg.basic_config.nproc = " -j" + str(args.j)
 
-    #install_apt_packages(cfg)
-    #install_libraries_from_source(cfg)
+    install_apt_packages(cfg)
+    install_libraries_from_source(cfg)
     install_python_packages(cfg)
 
 

@@ -97,7 +97,7 @@ def install_easy_profiler_linux(
         except urllib.error.HTTPError as e:
             raise Exception("Easy-profiler: cloning failed")
 
-        os.system("unzip ./easy_profiler.zip -d .")
+        os.system("unzip -q ./easy_profiler.zip -d .")
 
         os.makedirs("./build/Release", exist_ok=True)
         os.makedirs("./install/Release", exist_ok=True)
