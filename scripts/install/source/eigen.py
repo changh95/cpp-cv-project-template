@@ -97,7 +97,7 @@ def install_eigen_linux(
         except urllib.error.HTTPError as e:
             raise Exception("Eigen: cloning failed")
 
-        if os.system("unzip ./eigen.zip -d .") != 0:
+        if os.system("unzip -q ./eigen.zip -d .") != 0:
             raise Exception
 
         os.makedirs("./build/Release", exist_ok=True)

@@ -108,7 +108,7 @@ def install_opencv_linux(
         except urllib.error.HTTPError as e:
             raise Exception("OpenCV: cloning failed")
 
-        os.system("unzip ./opencv.zip -d .")
+        os.system("unzip -q ./opencv.zip -d .")
 
         os.makedirs("./build/Release", exist_ok=True)
         os.makedirs("./install/Release", exist_ok=True)

@@ -23,7 +23,8 @@ def install_evo(cfg):
         except urllib.error.HTTPError as e:
             raise Exception("EVO: cloning failed")
 
-        os.system("unzip ./evo.zip -d .")
+        os.system("unzip -q ./evo.zip -d .")
+
         os.rename("evo-" + version_num, "evo")
         os.system(pw.sudo() + "rm -rf ./evo.zip")
 

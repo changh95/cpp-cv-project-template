@@ -6,7 +6,6 @@ Makefile
 
 .vscode**
 
-python_venv/**
 .idea/**
 .venv/**
 __pycache__

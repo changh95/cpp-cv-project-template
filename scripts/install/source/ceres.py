@@ -99,7 +99,7 @@ def install_ceres_linux(
         except urllib.error.HTTPError as e:
             raise Exception("Ceres-solver: cloning failed")
 
-        os.system("unzip ./ceres.zip -d .")
+        os.system("unzip -q ./ceres.zip -d .")
 
         os.makedirs("./build/Release")
         os.makedirs("./install/Release")

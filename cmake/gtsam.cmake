@@ -1,6 +1,6 @@
 # GTSAM
 
-find_package (GTSAM PATHS ${CMAKE_CURRENT_SOURCE_DIR}/third_party/GTSAM/install)
+find_package (GTSAM PATHS ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/gtsam/install)
 if (${GTSAM_FOUND})
 	message(STATUS "Found GTSAM")
 	add_definitions(-DGTSAM_DEVELOP)

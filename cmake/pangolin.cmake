@@ -1,6 +1,6 @@
 # Pangolin
 
-find_package (Pangolin PATHS ${CMAKE_CURRENT_SOURCE_DIR}/third_party/pangolin/install)
+find_package (Pangolin PATHS ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/pangolin/install)
 if (${Pangolin_FOUND})
 	message(STATUS "Found Pangolin")
 	add_definitions(-DPANGOLIN_DEVELOP)

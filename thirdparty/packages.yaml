@@ -12,7 +12,7 @@ apt_packages:
   JSON: true
   glog: true
   gflags: true
-  boost: false
+  boost: true
 build_packages:
   Eigen3: 
     version_num: 3.4.0
@@ -21,7 +21,7 @@ build_packages:
       release :
         - "-DCMAKE_CXX_FLAGS=\"-Ofast\""
   OpenCV: 
-    version_num: 4.7.0
+    version_num: 4.12.0
     cmake_flags:
       debug:
         - " -DWITH_EIGEN=OFF"

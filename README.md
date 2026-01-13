@@ -40,11 +40,23 @@ Status legend:
 
 >You need [Python3](https://www.python.org/) to use the automation scripts for project setup and build.
 
+### Docker (Ubuntu)
+
+Build an image:
+```commandline
+docker build . --tag cpp_cv_project:latest
+```
+
+Assuming your code lives in ~/Documents, you can start your container like so:
+```commandline
+docker run -p 8080:80 -it -v ${HOME}/Documents/:/Documents/ cpp_cv_project
+```
+
 ### Linux
 
 ```bash
 # Install Python 3 and required modules
-sudo apt install python3 python3-pip
+sudo apt-get install python3 python3-pip
 pip3 install pyyaml gitpython
 
 # Edit `setup_config.yaml` to configure project
@@ -69,7 +81,7 @@ gedit ./thirdparty/packages.yaml
 
 ## License :bank:
 
-This repo is licensed under MIT license. Click [here]([./LICENSE](https://github.com/changh95/cpp-cv-project-template/blob/main/LICENSE)) to view the license.
+This repo is licensed under MIT license. Click [here](https://github.com/changh95/cpp-cv-project-template/blob/develop/LICENSE) to view the license.
 
 ## Contributors :sunglasses:
 
